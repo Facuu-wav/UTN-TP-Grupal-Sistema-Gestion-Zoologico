@@ -9,9 +9,9 @@ public class Cuidador extends Persona {
 
     /// CONSTRUCTOR/ES ********************************************************************************************* ///
 
-    public Cuidador(String nombre, String especie, Hambre hambre, Salud salud, Higiene higiene, String nombre1, int DNI, double salario, Especialidad especialidad) {
-        super(nombre, especie, hambre, salud, higiene, nombre1, DNI, salario);
-        this.Especialidad = especialidad;
+    public Cuidador(String nombre, int dni, int legajo, double salario, Especialidad especialidad) {
+        super(nombre, dni, legajo, salario);
+        Especialidad = especialidad;
     }
 
     /// MÉTODOS **************************************************************************************************** ///

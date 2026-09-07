@@ -1,53 +1,65 @@
 package clases;
 
-import enums.Hambre;
-import enums.Higiene;
-import enums.Salud;
+public abstract class Persona {
 
-public class Persona extends Animal{
-        private static int ContLegajo = 0;
+    /// ATRIBUTOS ************************************************************************************************** ///
 
-    private String Nombre;
-    private int DNI;
-    private int Legajo;
-    private double Salario;
+    private static int    contLegajo = 0;
+    private        String nombre;
+    private        int    dni;
+    private        int    legajo;
+    private        double salario;
 
-    //constructor
-    public Persona(String nombre, String especie, Hambre hambre, Salud salud, Higiene higiene, String nombre1, int DNI, double salario) {
-        super(nombre, especie, hambre, salud, higiene);
-        this.Nombre = nombre1;
-        this.DNI = DNI;
-        this.Legajo = ContLegajo + 1;
-        this.Salario = salario;
+    /// CONSTRUCTOR/ES ********************************************************************************************* ///
+
+    public Persona(String nombre, int dni, int legajo, double salario) {
+        this.nombre  = nombre;
+        this.dni     = dni;
+        this.legajo  = legajo;
+        this.salario = salario;
     }
 
-    //getters
+    /// MÉTODOS **************************************************************************************************** ///
+
+    /// GETTERS Y SETTERS ****************************************************************************************** ///
+
+    public static int getContLegajo() {
+        return contLegajo;
+    }
+
+    public static void setContLegajo(int contLegajo) {
+        Persona.contLegajo = contLegajo;
+    }
+
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
-    public int getDNI() {
-        return DNI;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getDni() {
+        return dni;
+    }
+
+    public void setDni(int dni) {
+        this.dni = dni;
     }
 
     public int getLegajo() {
-        return Legajo;
+        return legajo;
+    }
+
+    public void setLegajo(int legajo) {
+        this.legajo = legajo;
     }
 
     public double getSalario() {
-        return Salario;
-    }
-
-    //setters
-
-    public void setNombre(String nombre) {
-        this.Nombre = nombre;
+        return salario;
     }
 
     public void setSalario(double salario) {
-        this.Salario = salario;
+        this.salario = salario;
     }
-
-    //metodos
-
 }
