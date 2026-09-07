@@ -1,23 +1,28 @@
 package clases;
-
 import enums.*;
 
 public abstract class Animal {
-    private String Nombre;
-    private String Especie;
-    private Hambre Hambre;
-    private Salud Salud;
+
+    /// ATRIBUTOS ************************************************************************************************** ///
+
+    private String  Nombre;
+    private String  Especie;
+    private Hambre  Hambre;
+    private Salud   Salud;
     private Higiene Higiene;
 
+    /// CONSTRUCTOR/ES ********************************************************************************************* ///
+
     public Animal(String nombre, String especie, Hambre hambre, Salud salud, Higiene higiene) {
-        this.Nombre = nombre;
+        this.Nombre  = nombre;
         this.Especie = especie;
-        this.Hambre = hambre;
-        this.Salud = salud;
+        this.Hambre  = hambre;
+        this.Salud   = salud;
         this.Higiene = higiene;
     }
 
-    //METODOS
+    /// MÉTODOS **************************************************************************************************** ///
+
     public void comer (){
 
     }
@@ -40,4 +45,7 @@ public abstract class Animal {
                 ", Higiene=" + Higiene +
                 '}';
     }
+
+    /// GETTERS Y SETTERS ****************************************************************************************** ///
+    
 }

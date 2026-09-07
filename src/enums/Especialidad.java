@@ -1,7 +1,7 @@
 package enums;
 
 public enum Especialidad {
-    MAMADOLOGO, // es[ecilaista en mamiferos
+    MAMADOLOGO, // especilaista en mamiferos
     HERPETOLOGO, // especialista en reptiles
     ORNITOLOGO; // especialista en aves
 }
