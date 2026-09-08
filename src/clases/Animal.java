@@ -24,15 +24,38 @@ public abstract class Animal {
     /// MÉTODOS **************************************************************************************************** ///
 
     public void comer() {
-
+       for(int i = 0 ; i < 4 ; ++i) {
+           if (Hambre.getGrado() > i) {
+                this.Hambre = enums.Hambre;
+           }
+       }
+        return;
     }
 
     public void enfermarse() {
-
+        this.Salud = enums.Salud.ENFERMO;
     }
 
-    public void ensuciarse() {
+    public void lastimarse(){
+        this.Salud = enums.Salud.LASTIMADO;
+    }
 
+    //Si Animal tiene el Hambre en MUYALTO entonces su Salud cambia a DESNUTRIDO.
+    public boolean Desnutrirse (){
+        if(Hambre.getGrado() > 2) { //Hambre grado 2 = ALTO
+            this.Salud = enums.Salud.DESNUTRIDO;
+            return true;
+        }
+        return false;
+    }
+
+    //Si Animal tiene la Salud en LASTIMADO o en ENFERMO entonces Higiene pasa a SUCIO.
+    public boolean ensuciarse() {
+        if(Salud == enums.Salud.LASTIMADO || Salud == enums.Salud.ENFERMO){
+            this.Higiene = enums.Higiene.SUCIO;
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -44,6 +67,10 @@ public abstract class Animal {
                 ", Salud=" + Salud +
                 ", Higiene=" + Higiene +
                 '}';
+    }
+
+    public void defecar(){
+
     }
 
     /// GETTERS Y SETTERS ****************************************************************************************** ///
