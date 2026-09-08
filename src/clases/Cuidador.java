@@ -17,15 +17,23 @@ public class Cuidador extends Persona {
     /// MÉTODOS **************************************************************************************************** ///
 
     public void alimentar() {
+
+        return ;
     }
 
     public void vacunar() {
 
     }
 
-    public void limpiar() {
+    public void limpiarRecinto() {
 
     }
+
+    public void curar(){
+
+    }
+
+
 
     /// GETTERS Y SETTERS ****************************************************************************************** ///
 

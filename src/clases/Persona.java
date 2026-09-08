@@ -19,7 +19,18 @@ public abstract class Persona {
         this.salario = salario;
     }
 
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", dni=" + dni +
+                ", legajo=" + legajo +
+                ", salario=" + salario +
+                '}';
+    }
+
     /// MÉTODOS **************************************************************************************************** ///
+
 
     /// GETTERS Y SETTERS ****************************************************************************************** ///
 
