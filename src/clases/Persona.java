@@ -4,7 +4,7 @@ public abstract class Persona {
 
     /// ATRIBUTOS ************************************************************************************************** ///
 
-    private static int    contLegajo = 0;
+    private static int    cantLegajo = 0;
     private        String nombre;
     private        int    dni;
     private        int    legajo;
@@ -15,7 +15,7 @@ public abstract class Persona {
     public Persona(String nombre, int dni, int legajo, double salario) {
         this.nombre  = nombre;
         this.dni     = dni;
-        this.legajo  = legajo;
+        this.legajo  = cantLegajo++;
         this.salario = salario;
     }
 
@@ -33,14 +33,6 @@ public abstract class Persona {
 
 
     /// GETTERS Y SETTERS ****************************************************************************************** ///
-
-    public static int getContLegajo() {
-        return contLegajo;
-    }
-
-    public static void setContLegajo(int contLegajo) {
-        Persona.contLegajo = contLegajo;
-    }
 
     public String getNombre() {
         return nombre;
@@ -60,10 +52,6 @@ public abstract class Persona {
 
     public int getLegajo() {
         return legajo;
-    }
-
-    public void setLegajo(int legajo) {
-        this.legajo = legajo;
     }
 
     public double getSalario() {
