@@ -5,20 +5,20 @@ public abstract class Animal {
 
     /// ATRIBUTOS ************************************************************************************************** ///
 
-    private String  Nombre;
-    private String  Especie;
-    private Hambre  Hambre;
-    private Salud   Salud;
-    private Higiene Higiene;
+    private String  nombre;
+    private String  especie;
+    private Hambre  hambre;
+    private Salud   salud;
+    private Higiene higiene;
 
     /// CONSTRUCTOR/ES ********************************************************************************************* ///
 
     public Animal(String nombre, String especie, Hambre hambre, Salud salud, Higiene higiene) {
-        this.Nombre  = nombre;
-        this.Especie = especie;
-        this.Hambre  = hambre;
-        this.Salud   = salud;
-        this.Higiene = higiene;
+        this.nombre  = nombre;
+        this.especie = especie;
+        this.hambre  = hambre;
+        this.salud   = salud;
+        this.higiene = higiene;
     }
 
     /// MÉTODOS **************************************************************************************************** ///
@@ -26,24 +26,23 @@ public abstract class Animal {
     public void comer() {
        for(int i = 0 ; i < 4 ; ++i) {
            if (Hambre.getGrado() > i) {
-                this.Hambre = enums.Hambre;
+                this.hambre = enums.Hambre;
            }
        }
-        return;
     }
 
     public void enfermarse() {
-        this.Salud = enums.Salud.ENFERMO;
+        this.salud = enums.Salud.ENFERMO;
     }
 
     public void lastimarse(){
-        this.Salud = enums.Salud.LASTIMADO;
+        this.salud = enums.Salud.LASTIMADO;
     }
 
     //Si Animal tiene el Hambre en MUYALTO entonces su Salud cambia a DESNUTRIDO.
     public boolean Desnutrirse (){
         if(Hambre.getGrado() > 2) { //Hambre grado 2 = ALTO
-            this.Salud = enums.Salud.DESNUTRIDO;
+            this.salud = enums.Salud.DESNUTRIDO;
             return true;
         }
         return false;
@@ -51,67 +50,67 @@ public abstract class Animal {
 
     //Si Animal tiene la Salud en LASTIMADO o en ENFERMO entonces Higiene pasa a SUCIO.
     public boolean ensuciarse() {
-        if(Salud == enums.Salud.LASTIMADO || Salud == enums.Salud.ENFERMO){
-            this.Higiene = enums.Higiene.SUCIO;
+        if(salud == enums.Salud.LASTIMADO || salud == enums.Salud.ENFERMO){
+            this.higiene = enums.Higiene.SUCIO;
             return true;
         }
         return false;
-    }
-
-    @Override
-    public String toString() {
-        return "Animal{" +
-                "Nombre='" + Nombre + '\'' +
-                ", Especie='" + Especie + '\'' +
-                ", Hambre=" + Hambre +
-                ", Salud=" + Salud +
-                ", Higiene=" + Higiene +
-                '}';
     }
 
     public void defecar(){
 
     }
 
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "Nombre='" + nombre + '\'' +
+                ", Especie='" + especie + '\'' +
+                ", Hambre=" + hambre +
+                ", Salud=" + salud +
+                ", Higiene=" + higiene +
+                '}';
+    }
+
     /// GETTERS Y SETTERS ****************************************************************************************** ///
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        nombre = nombre;
     }
 
     public String getEspecie() {
-        return Especie;
+        return especie;
     }
 
     public void setEspecie(String especie) {
-        Especie = especie;
+        especie = especie;
     }
 
     public Hambre getHambre() {
-        return Hambre;
+        return hambre;
     }
 
     public void setHambre(Hambre hambre) {
-        Hambre = hambre;
+        hambre = hambre;
     }
 
     public Salud getSalud() {
-        return Salud;
+        return salud;
     }
 
     public void setSalud(Salud salud) {
-        Salud = salud;
+        salud = salud;
     }
 
     public Higiene getHigiene() {
-        return Higiene;
+        return higiene;
     }
 
     public void setHigiene(Higiene higiene) {
-        Higiene = higiene;
+        higiene = higiene;
     }
 }

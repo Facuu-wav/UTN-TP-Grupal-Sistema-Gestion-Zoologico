@@ -7,21 +7,18 @@ import enums.TipoPelaje;
 
 public class Mamifero extends Animal{
 
+    /// ATRIBUTOS ************************************************************************************************** ///
+
     private TipoPelaje pelaje;
 
+    /// CONSTRUCTOR/ES ********************************************************************************************* ///
 
     public Mamifero(String nombre, String especie, Hambre hambre, Salud salud, Higiene higiene, TipoPelaje pelaje) {
         super(nombre, especie, hambre, salud, higiene);
         this.pelaje = pelaje;
     }
 
-    public TipoPelaje getPelaje() {
-        return pelaje;
-    }
-
-    public void setPelaje(TipoPelaje pelaje) {
-        this.pelaje = pelaje;
-    }
+    /// MÉTODOS **************************************************************************************************** ///
 
     @Override
     public void comer (){
@@ -34,7 +31,18 @@ public class Mamifero extends Animal{
     }
 
     @Override
-    public void ensuciarse (){
-        System.out.println("El Mamifero Ensucio...");
+    public boolean ensuciarse (){
+        //System.out.println("El Mamifero Ensucio...");
+        return true;
+    }
+
+    /// GETTERS Y SETTERS ****************************************************************************************** ///
+
+    public TipoPelaje getPelaje() {
+        return pelaje;
+    }
+
+    public void setPelaje(TipoPelaje pelaje) {
+        this.pelaje = pelaje;
     }
 }

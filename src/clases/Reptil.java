@@ -1,29 +1,20 @@
 package clases;
 
 public class Reptil {
+
+    /// ATRIBUTOS ************************************************************************************************** ///
+
     private boolean esVenenoso;
     private boolean tienePatas;
+
+    /// CONSTRUCTOR/ES ********************************************************************************************* ///
 
     public Reptil(boolean esVenenoso, boolean tienePatas) {
         this.esVenenoso = esVenenoso;
         this.tienePatas = tienePatas;
     }
 
-    public boolean isEsVenenoso() {
-        return esVenenoso;
-    }
-
-    public void setEsVenenoso(boolean esVenenoso) {
-        this.esVenenoso = esVenenoso;
-    }
-
-    public boolean isTienePatas() {
-        return tienePatas;
-    }
-
-    public void setTienePatas(boolean tienePatas) {
-        this.tienePatas = tienePatas;
-    }
+    /// MÉTODOS **************************************************************************************************** ///
 
     @Override
     public String toString() {
@@ -67,6 +58,24 @@ public class Reptil {
 
     public void retirarVeneno() {
         this.esVenenoso = !isEsVenenoso();
+    }
+
+    /// GETTERS Y SETTERS ****************************************************************************************** ///
+
+    public boolean isEsVenenoso() {
+        return esVenenoso;
+    }
+
+    public void setEsVenenoso(boolean esVenenoso) {
+        this.esVenenoso = esVenenoso;
+    }
+
+    public boolean isTienePatas() {
+        return tienePatas;
+    }
+
+    public void setTienePatas(boolean tienePatas) {
+        this.tienePatas = tienePatas;
     }
 
 

@@ -19,35 +19,6 @@ public abstract class Persona {
         this.salario = salario;
     }
 
-    /// GETTERS Y SETTERS ****************************************************************************************** ///
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getDni() {
-        return dni;
-    }
-
-    public void setDni(int dni) {
-        this.dni = dni;
-    }
-
-    public int getLegajo() {
-        return legajo;
-    }
-
-    public double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
     /// MÉTODOS **************************************************************************************************** ///
 
     @Override
@@ -101,5 +72,35 @@ public abstract class Persona {
     }
 
     public abstract double aumentarSalario(double porcentaje);
+
+    /// GETTERS Y SETTERS ****************************************************************************************** ///
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getDni() {
+        return dni;
+    }
+
+    public void setDni(int dni) {
+        this.dni = dni;
+    }
+
+    public int getLegajo() {
+        return legajo;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
 
 }

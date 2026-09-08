@@ -33,8 +33,6 @@ public class Cuidador extends Persona {
 
     }
 
-
-
     /// GETTERS Y SETTERS ****************************************************************************************** ///
 
     public Especialidad getEspecialidad() {
