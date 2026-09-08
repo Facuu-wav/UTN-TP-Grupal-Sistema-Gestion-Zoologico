@@ -19,19 +19,6 @@ public abstract class Persona {
         this.salario = salario;
     }
 
-    @Override
-    public String toString() {
-        return "Persona{" +
-                "nombre='" + nombre + '\'' +
-                ", dni=" + dni +
-                ", legajo=" + legajo +
-                ", salario=" + salario +
-                '}';
-    }
-
-    /// MÉTODOS **************************************************************************************************** ///
-
-
     /// GETTERS Y SETTERS ****************************************************************************************** ///
 
     public String getNombre() {
@@ -61,4 +48,58 @@ public abstract class Persona {
     public void setSalario(double salario) {
         this.salario = salario;
     }
+    /// MÉTODOS **************************************************************************************************** ///
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj){
+            return true;
+        }
+
+        if(getClass() != obj.getClass()) {
+            return false;
+        }
+
+        if(obj instanceof Persona) {
+            Persona otra = (Persona) obj;
+            if(this.dni == otra.dni){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", dni=" + dni +
+                ", legajo=" + legajo +
+                ", salario=" + salario +
+                '}';
+    }
+
+    public int cantidadPersonas() {
+        return this.cantLegajo;
+    }
+
+    public String quejarseDelSueldo() {
+        return (this.nombre + "dice que con $" + this.salario + " no le alcanza para nada");
+    }
+
+    public boolean tieneGanasDeTrabajar() {
+        return false;
+    }
+
+    public String tomarCafe() {
+        return "\nEl empleado " + " esta tomando un cafe...";
+    }
+
+    public abstract double aumentarSalario(double porcentaje);
+
 }

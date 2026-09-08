@@ -44,4 +44,10 @@ public class Cuidador extends Persona {
     public void setEspecialidad(Especialidad especialidad) {
         Especialidad = especialidad;
     }
+
+    @Override
+    public double aumentarSalario(double porcentaje) {
+        setSalario((getSalario() * porcentaje) / 100);
+        return getSalario();
+    }
 }
