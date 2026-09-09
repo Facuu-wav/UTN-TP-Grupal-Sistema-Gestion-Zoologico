@@ -13,7 +13,7 @@ public class Main {
         boolean key = true;
 
         int maximoAnimales = 20;
-        Animal Animales[] = new Animal[maximoAnimales];
+        Animal animales[] = new Animal[maximoAnimales];
 
         while (key) {
             System.out.println("+==========================+");
