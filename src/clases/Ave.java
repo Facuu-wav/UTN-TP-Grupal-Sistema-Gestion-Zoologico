@@ -67,4 +67,6 @@ public class Ave extends Animal{
     public void setCapVuelo(CapacidadVuelo capVuelo) {
         this.capVuelo = capVuelo;
     }
+
+
 }

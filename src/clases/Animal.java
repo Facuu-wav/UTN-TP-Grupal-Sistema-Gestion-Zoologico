@@ -4,6 +4,8 @@ import enums.*;
 public abstract class Animal {
 
     /// ATRIBUTOS ************************************************************************************************** ///
+    private int id;
+            private static int siguienteid = 0;
 
     private String  nombre;
     private String  especie;
@@ -14,6 +16,8 @@ public abstract class Animal {
     /// CONSTRUCTOR/ES ********************************************************************************************* ///
 
     public Animal(String nombre, String especie, Hambre hambre, Salud salud, Higiene higiene) {
+        this.id = siguienteid++;
+
         this.nombre  = nombre;
         this.especie = especie;
         this.hambre  = hambre;
@@ -111,5 +115,9 @@ public abstract class Animal {
 
     public void setHigiene(Higiene higiene) {
         this.higiene = higiene;
+    }
+
+    public int getId() {
+        return id;
     }
 }
