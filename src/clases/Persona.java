@@ -41,6 +41,25 @@ public abstract class Persona {
         return false;
     }
      */
+
+    public abstract double aumentarSalario(double porcentaje);
+
+    public static int cantidadPersonas() {
+        return proxLegajo;
+    }
+
+    public String quejarseDelSueldo() {
+        return (this.nombre + " dice que con $" + this.salario + " no le alcanza para nada");
+    }
+
+    public boolean tieneGanasDeTrabajar() {
+        return false;
+    }
+
+    public String tomarCafe() {
+        return "\nEl empleado " + this.nombre + " está tomando un café...";
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -69,24 +88,6 @@ public abstract class Persona {
                 ", salario=" + salario +
                 '}';
     }
-
-    public static int cantidadPersonas() {
-        return proxLegajo;
-    }
-
-    public String quejarseDelSueldo() {
-        return (this.nombre + " dice que con $" + this.salario + " no le alcanza para nada");
-    }
-
-    public boolean tieneGanasDeTrabajar() {
-        return false;
-    }
-
-    public String tomarCafe() {
-        return "\nEl empleado " + this.nombre + " está tomando un café...";
-    }
-
-    public abstract double aumentarSalario(double porcentaje);
 
     /// GETTERS Y SETTERS ****************************************************************************************** ///
 

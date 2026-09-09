@@ -21,14 +21,6 @@ public class Reptil extends Animal {
 
     /// MÉTODOS **************************************************************************************************** ///
 
-    @Override
-    public String toString() {
-        return super.toString() + "Reptil{" +
-                "esVenenoso=" + esVenenoso +
-                ", tienePatas=" + tienePatas +
-                '}';
-    }
-
     public String desplazasarce() {
         if(this.tienePatas) {
             return "El reptil se desplaza caminando";
@@ -66,6 +58,14 @@ public class Reptil extends Animal {
 
     public void retirarVeneno() {
         this.esVenenoso = !isEsVenenoso();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Reptil{" +
+                "esVenenoso=" + esVenenoso +
+                ", tienePatas=" + tienePatas +
+                '}';
     }
 
     /// GETTERS Y SETTERS ****************************************************************************************** ///
