@@ -23,6 +23,7 @@ public abstract class Animal {
 
     /// MÉTODOS **************************************************************************************************** ///
 
+    // revisar
     public void comer() {
        for(int i = 0 ; i < 4 ; ++i) {
            if (Hambre.getGrado() > i) {
@@ -31,18 +32,20 @@ public abstract class Animal {
        }
     }
 
+
     public void enfermarse() {
-        this.salud = enums.Salud.ENFERMO;
+        this.salud = Salud.ENFERMO;
     }
 
     public void lastimarse(){
-        this.salud = enums.Salud.LASTIMADO;
+        this.salud = Salud.LASTIMADO;
     }
 
-    //Si Animal tiene el Hambre en MUYALTO entonces su Salud cambia a DESNUTRIDO.
-    public boolean Desnutrirse (){
+    // revisar
+    //Si Animal tiene el Hambre en MUY_ALTO entonces su Salud cambia a DESNUTRIDO.
+    public boolean desnutrirse (){
         if(Hambre.getGrado() > 2) { //Hambre grado 2 = ALTO
-            this.salud = enums.Salud.DESNUTRIDO;
+            this.salud = Salud.DESNUTRIDO;
             return true;
         }
         return false;
@@ -79,7 +82,7 @@ public abstract class Animal {
     }
 
     public void setNombre(String nombre) {
-        nombre = nombre;
+        this.nombre = nombre;
     }
 
     public String getEspecie() {
@@ -87,7 +90,7 @@ public abstract class Animal {
     }
 
     public void setEspecie(String especie) {
-        especie = especie;
+        this.especie = especie;
     }
 
     public Hambre getHambre() {
@@ -95,7 +98,7 @@ public abstract class Animal {
     }
 
     public void setHambre(Hambre hambre) {
-        hambre = hambre;
+        this.hambre = hambre;
     }
 
     public Salud getSalud() {
@@ -103,7 +106,7 @@ public abstract class Animal {
     }
 
     public void setSalud(Salud salud) {
-        salud = salud;
+        this.salud = salud;
     }
 
     public Higiene getHigiene() {
@@ -111,6 +114,6 @@ public abstract class Animal {
     }
 
     public void setHigiene(Higiene higiene) {
-        higiene = higiene;
+        this.higiene = higiene;
     }
 }
