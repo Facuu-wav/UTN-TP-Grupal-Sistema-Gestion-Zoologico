@@ -21,7 +21,32 @@ public class Reptil extends Animal {
 
     /// MÉTODOS **************************************************************************************************** ///
 
-    public String desplazasarce() {
+    @Override
+    public void comer (){
+        super.comer();
+        System.out.println(
+                getNombre() + " come comida para reptiles..."
+        );
+    }
+
+    @Override
+    public void enfermarse() {
+        super.enfermarse();
+        System.out.println("El reptil " + getNombre() + " enfermó...");
+    }
+
+    @Override
+    public boolean ensuciarse() {
+        boolean seEnsucio = super.ensuciarse();
+
+        if (seEnsucio) {
+            System.out.println("El reptil " + getNombre() + " se ensució...");
+        }
+
+        return seEnsucio;
+    }
+
+    public String desplazarse() {
         if(this.tienePatas) {
             return "El reptil se desplaza caminando";
         }
@@ -35,12 +60,7 @@ public class Reptil extends Animal {
     }
 
     public boolean esSerpiente() {
-        if(!this.tienePatas) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return !this.tienePatas;
     }
 
     public String mudarDePiel() {
@@ -48,16 +68,11 @@ public class Reptil extends Animal {
     }
 
     public boolean esMasPeligroso(Reptil otro) {
-        if(this.esVenenoso && !otro.isEsVenenoso()){
-            return true;
-        }
-        else {
-            return false;
-        }
+       return this.esVenenoso && !otro.esVenenoso();
     }
 
     public void retirarVeneno() {
-        this.esVenenoso = !isEsVenenoso();
+        this.esVenenoso = false;
     }
 
     @Override
@@ -67,7 +82,7 @@ public class Reptil extends Animal {
 
     @Override
     public String toString() {
-        return super.toString() + "Reptil{" +
+        return super.toString() + "\nReptil{" +
                 "esVenenoso=" + esVenenoso +
                 ", tienePatas=" + tienePatas +
                 '}';
@@ -75,7 +90,7 @@ public class Reptil extends Animal {
 
     /// GETTERS Y SETTERS ****************************************************************************************** ///
 
-    public boolean isEsVenenoso() {
+    public boolean esVenenoso() {
         return esVenenoso;
     }
 
@@ -83,12 +98,11 @@ public class Reptil extends Animal {
         this.esVenenoso = esVenenoso;
     }
 
-    public boolean isTienePatas() {
+    public boolean tienePatas() {
         return tienePatas;
     }
 
     public void setTienePatas(boolean tienePatas) {
         this.tienePatas = tienePatas;
     }
-
 }

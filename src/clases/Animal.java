@@ -4,9 +4,9 @@ import enums.*;
 public abstract class Animal {
 
     /// ATRIBUTOS ************************************************************************************************** ///
-    private int id;
-            private static int siguienteid = 0;
 
+    private static int siguienteId = 0;
+    private int id;
     private String  nombre;
     private String  especie;
     private Hambre  hambre;
@@ -16,8 +16,7 @@ public abstract class Animal {
     /// CONSTRUCTOR/ES ********************************************************************************************* ///
 
     public Animal(String nombre, String especie, Hambre hambre, Salud salud, Higiene higiene) {
-        this.id = siguienteid++;
-
+        this.id = siguienteId++;
         this.nombre  = nombre;
         this.especie = especie;
         this.hambre  = hambre;
@@ -35,10 +34,6 @@ public abstract class Animal {
         this.salud = Salud.ENFERMO;
     }
 
-    public void volverSaludable() {
-        this.salud = Salud.SALUDABLE;
-    }
-
     //Si Animal tiene la Salud en LASTIMADO o en ENFERMO entonces Higiene pasa a SUCIO.
     public boolean ensuciarse() {
         if(salud == Salud.LASTIMADO || salud == Salud.ENFERMO){
@@ -52,8 +47,7 @@ public abstract class Animal {
         this.salud = Salud.LASTIMADO;
     }
 
-    // revisar
-    //Si Animal tiene el Hambre en MUY_ALTO entonces su Salud cambia a DESNUTRIDO.
+    //Si Animal tiene el Hambre en MUY_ALTA entonces su Salud cambia a DESNUTRIDO.
     public boolean desnutrirse (){
         if(this.hambre.getGrado() > 2) { //Hambre grado 2 = ALTO
             this.salud = Salud.DESNUTRIDO;
@@ -75,6 +69,26 @@ public abstract class Animal {
                 ", Salud=" + salud +
                 ", Higiene=" + higiene +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof Animal)) {
+            return false;
+        }
+
+        Animal otro = (Animal)obj;
+
+        return this.id == otro.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(id);
     }
 
     /// GETTERS Y SETTERS ****************************************************************************************** ///
