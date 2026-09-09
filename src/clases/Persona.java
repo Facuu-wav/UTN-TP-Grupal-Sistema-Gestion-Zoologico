@@ -21,27 +21,6 @@ public abstract class Persona {
 
     /// MÉTODOS **************************************************************************************************** ///
 
-    /*
-    @Override
-    public boolean equals(Object obj) {
-        if(this == obj){
-            return true;
-        }
-
-        if(getClass() != obj.getClass()) {
-            return false;
-        }
-
-        if(obj instanceof Persona) {
-            Persona otra = (Persona) obj;
-            if(this.dni == otra.dni){
-                return true;
-            }
-        }
-        return false;
-    }
-     */
-
     public abstract double aumentarSalario(double porcentaje);
 
     public static int cantidadPersonas() {

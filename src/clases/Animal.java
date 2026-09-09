@@ -31,6 +31,10 @@ public abstract class Animal {
         this.salud = Salud.ENFERMO;
     }
 
+    public void volverSaludable() {
+        this.salud = Salud.SALUDABLE;
+    }
+
     //Si Animal tiene la Salud en LASTIMADO o en ENFERMO entonces Higiene pasa a SUCIO.
     public boolean ensuciarse() {
         if(salud == Salud.LASTIMADO || salud == Salud.ENFERMO){
@@ -39,11 +43,7 @@ public abstract class Animal {
         }
         return false;
     }
-
-    public void volverSaludable() {
-        this.salud = Salud.SALUDABLE;
-    }
-
+    
     public void lastimarse() {
         this.salud = Salud.LASTIMADO;
     }
