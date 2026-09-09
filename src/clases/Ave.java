@@ -23,18 +23,29 @@ public class Ave extends Animal{
     /// MÉTODOS **************************************************************************************************** ///
 
     @Override
-    public void comer(){
-        System.out.println("El Ave Come...");
+    public void comer (){
+        super.comer();
+        System.out.println(
+                getNombre() + " come comida para aves..."
+        );
     }
+
 
     @Override
     public void enfermarse() {
-        System.out.println("El Ave Enfermo...");
+        super.enfermarse();
+        System.out.println("El ave enfermó...");
     }
 
     @Override
-    public boolean ensuciarse(){
-        return true;
+    public boolean ensuciarse() {
+        boolean seEnsucio = super.ensuciarse();
+
+        if (seEnsucio) {
+            System.out.println("El ave " + getNombre() + " se ensució...");
+        }
+
+        return seEnsucio;
     }
 
     @Override
@@ -44,7 +55,7 @@ public class Ave extends Animal{
 
     @Override
     public String toString() {
-        return super.toString() + "Ave{" +
+        return super.toString() + "\nAve{" +
                 "estadoPlumaje='" + estadoPlumaje + '\'' +
                 ", capVuelo=" + capVuelo +
                 '}';

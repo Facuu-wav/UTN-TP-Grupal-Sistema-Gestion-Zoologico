@@ -24,19 +24,25 @@ public class Mamifero extends Animal{
     public void comer (){
         super.comer();
         System.out.println(
-               "El animal mamifero " + getNombre() + " come..."
+               getNombre() + " come comida para animales mamíferos..."
         );
     }
 
     @Override
     public void enfermarse() {
-        System.out.println("El Mamifero Enfermo...");
+        super.enfermarse();
+        System.out.println("El Mamifero enfermó...");
     }
 
     @Override
     public boolean ensuciarse() {
-        //System.out.println("El Mamifero Ensucio...");
-        return true;
+        boolean seEnsucio = super.ensuciarse();
+
+        if (seEnsucio) {
+            System.out.println("El mamífero " + getNombre() + " se ensució...");
+        }
+
+        return seEnsucio;
     }
 
     @Override
@@ -46,7 +52,7 @@ public class Mamifero extends Animal{
 
     @Override
     public String toString() {
-        return super.toString() + "Mamifero{" +
+        return super.toString() + "\nMamifero{" +
                 "pelaje=" + pelaje +
                 '}';
     }
