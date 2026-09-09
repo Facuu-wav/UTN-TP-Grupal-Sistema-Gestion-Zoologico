@@ -29,7 +29,7 @@ public class Cuidador extends Persona {
             );
         }
     }
-    
+
     public void curar(Animal animal) {
         if (puedeTratar(animal)) {
             System.out.println(
