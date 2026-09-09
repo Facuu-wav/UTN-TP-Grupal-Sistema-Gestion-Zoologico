@@ -34,7 +34,7 @@ public class Ave extends Animal{
     @Override
     public void enfermarse() {
         super.enfermarse();
-        System.out.println("El ave enfermó...");
+        System.out.println("El ave " + getNombre() + " enfermó...");
     }
 
     @Override

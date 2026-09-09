@@ -32,7 +32,7 @@ public class Reptil extends Animal {
     @Override
     public void enfermarse() {
         super.enfermarse();
-        System.out.println("El reptil enfermó...");
+        System.out.println("El reptil " + getNombre() + " enfermó...");
     }
 
     @Override

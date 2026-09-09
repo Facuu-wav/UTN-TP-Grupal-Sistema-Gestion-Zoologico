@@ -31,7 +31,7 @@ public class Mamifero extends Animal{
     @Override
     public void enfermarse() {
         super.enfermarse();
-        System.out.println("El Mamifero enfermó...");
+        System.out.println("El Mamifero " + getNombre() + " enfermó...");
     }
 
     @Override
