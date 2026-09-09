@@ -47,8 +47,7 @@ public abstract class Animal {
         this.salud = Salud.LASTIMADO;
     }
 
-    // revisar
-    //Si Animal tiene el Hambre en MUY_ALTO entonces su Salud cambia a DESNUTRIDO.
+    //Si Animal tiene el Hambre en MUY_ALTA entonces su Salud cambia a DESNUTRIDO.
     public boolean desnutrirse (){
         if(this.hambre.getGrado() > 2) { //Hambre grado 2 = ALTO
             this.salud = Salud.DESNUTRIDO;
@@ -68,6 +67,26 @@ public abstract class Animal {
                 ", Salud=" + salud +
                 ", Higiene=" + higiene +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof Animal)) {
+            return false;
+        }
+
+        Animal otro = (Animal)obj;
+
+        return this.id == otro.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(id);
     }
 
     /// GETTERS Y SETTERS ****************************************************************************************** ///
