@@ -1,7 +1,4 @@
-import clases.Animal;
-import clases.Ave;
-import clases.Mamifero;
-import clases.Reptil;
+import clases.*;
 import enums.*;
 
 import java.sql.SQLOutput;
@@ -12,6 +9,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int maximoAnimales = 20;
         Animal animales[] = new Animal[maximoAnimales];
+
+        Cuidador[] cuidadores = new Cuidador[] {
+                new Cuidador("Carlos Gómez", 35412890, 850000.0, Especialidad.MAMIFEROS),
+                new Cuidador("Laura Martínez", 38923411, 890000.0, Especialidad.REPTILES),
+                new Cuidador("Mariano Silva", 40123789, 820000.0, Especialidad.AVES)
+        };
 
         // Mamíferos: requieren (..., TipoPelaje)
         animales[0] = new Mamifero("Leonel", "León", Hambre.BAJA, Salud.SALUDABLE, Higiene.LIMPIO, TipoPelaje.CORTO);
