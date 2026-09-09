@@ -36,6 +36,13 @@ public class Mamifero extends Animal{
         return true;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "Mamifero{" +
+                "pelaje=" + pelaje +
+                '}';
+    }
+
     /// GETTERS Y SETTERS ****************************************************************************************** ///
 
     public TipoPelaje getPelaje() {

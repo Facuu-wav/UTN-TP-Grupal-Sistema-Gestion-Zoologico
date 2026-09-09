@@ -37,6 +37,14 @@ public class Ave extends Animal{
         return true;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "Ave{" +
+                "estadoPlumaje='" + estadoPlumaje + '\'' +
+                ", capVuelo=" + capVuelo +
+                '}';
+    }
+
     /// GETTERS Y SETTERS ****************************************************************************************** ///
 
     public String getEstadoPlumaje() {

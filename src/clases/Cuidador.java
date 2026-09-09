@@ -33,6 +33,13 @@ public class Cuidador extends Persona {
 
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "Cuidador{" +
+                "Especialidad=" + Especialidad +
+                '}';
+    }
+
     /// GETTERS Y SETTERS ****************************************************************************************** ///
 
     public Especialidad getEspecialidad() {

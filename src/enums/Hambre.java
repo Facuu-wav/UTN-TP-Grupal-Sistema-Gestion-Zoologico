@@ -4,7 +4,8 @@ public enum Hambre {
     BAJA(0),
     MEDIA(1),
     ALTA(2),
-    MUYALTA(3);
+    MUY_ALTA(3);
+
     private final int Grado;
 
     Hambre(int grado) {

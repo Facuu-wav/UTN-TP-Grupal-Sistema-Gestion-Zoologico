@@ -4,5 +4,5 @@ public enum Salud {
     DESNUTRIDO,
     ENFERMO,
     SALUDABLE,
-    LASTIMADO;
+    LASTIMADO
 }

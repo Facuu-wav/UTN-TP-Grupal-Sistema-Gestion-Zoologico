@@ -18,7 +18,10 @@ public class Reptil {
 
     @Override
     public String toString() {
-        return "\nReptil: " + "\nEs Venenoso: " + isEsVenenoso() + "\nTiene Patas: " + isTienePatas();
+        return super.toString() + "Reptil{" +
+                "esVenenoso=" + esVenenoso +
+                ", tienePatas=" + tienePatas +
+                '}';
     }
 
     public String desplazasarce() {
@@ -77,6 +80,5 @@ public class Reptil {
     public void setTienePatas(boolean tienePatas) {
         this.tienePatas = tienePatas;
     }
-
 
 }
