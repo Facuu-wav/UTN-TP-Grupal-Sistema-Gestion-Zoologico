@@ -34,8 +34,8 @@ public class Cuidador extends Persona {
 
     }
 
-    public void limpiarRecinto() {
-
+    public String limpiarRecinto(Animal animal) {
+        return "El cuidador " + getNombre() + "limpia el recinto del animal " + animal.getNombre() + ".";
     }
 
     public void curar(Animal animal) {
@@ -82,6 +82,6 @@ public class Cuidador extends Persona {
     }
 
     public void setEspecialidad(Especialidad especialidad) {
-        especialidad = especialidad;
+        this.especialidad = especialidad;
     }
 }

@@ -30,7 +30,6 @@ public class Ave extends Animal{
         );
     }
 
-
     @Override
     public void enfermarse() {
         super.enfermarse();
@@ -78,6 +77,4 @@ public class Ave extends Animal{
     public void setCapVuelo(CapacidadVuelo capVuelo) {
         this.capVuelo = capVuelo;
     }
-
-
 }
