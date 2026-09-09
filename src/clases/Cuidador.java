@@ -43,15 +43,6 @@ public class Cuidador extends Persona {
         }
     }
 
-    public void limpiarAnimal(Animal animal) {
-        if (puedeTratar(animal)) {
-            System.out.println("El cuidador " + getNombre() + " está limpiando al animal " + animal.getNombre() + ".");
-            animal.setHigiene(Higiene.LIMPIO);
-        } else {
-            System.out.println("El cuidador " + getNombre() + " no puede limpiar al animal " + animal.getNombre() + " porque no es su especialidad.");
-        }
-    }
-
     public void curar(Animal animal) {
         if (puedeTratar(animal)) {
             System.out.println(
@@ -62,6 +53,15 @@ public class Cuidador extends Persona {
             System.out.println(
                     "El cuidador " + getNombre() + " no puede curar a " + animal.getNombre() + " porque no es su especialidad."
             );
+        }
+    }
+
+    public void limpiarAnimal(Animal animal) {
+        if (puedeTratar(animal)) {
+            System.out.println("El cuidador " + getNombre() + " está limpiando al animal " + animal.getNombre() + ".");
+            animal.setHigiene(Higiene.LIMPIO);
+        } else {
+            System.out.println("El cuidador " + getNombre() + " no puede limpiar al animal " + animal.getNombre() + " porque no es su especialidad.");
         }
     }
 
