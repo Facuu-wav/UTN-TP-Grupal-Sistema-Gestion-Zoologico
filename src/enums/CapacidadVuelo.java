@@ -1,7 +1,7 @@
 package enums;
 
 public enum CapacidadVuelo {
-
-    OPTIMO, DEFECTUOSO, NO_VUELA
-
+    OPTIMO,
+    DEFECTUOSO,
+    NO_VUELA
 }

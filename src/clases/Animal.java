@@ -43,7 +43,7 @@ public abstract class Animal {
         }
         return false;
     }
-    
+
     public void lastimarse() {
         this.salud = Salud.LASTIMADO;
     }
