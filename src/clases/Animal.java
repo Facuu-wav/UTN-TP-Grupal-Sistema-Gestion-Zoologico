@@ -5,7 +5,7 @@ public abstract class Animal {
 
     /// ATRIBUTOS ************************************************************************************************** ///
 
-    private static int siguienteid = 0;
+    private static int siguienteId = 0;
     private int id;
     private String  nombre;
     private String  especie;
@@ -16,7 +16,7 @@ public abstract class Animal {
     /// CONSTRUCTOR/ES ********************************************************************************************* ///
 
     public Animal(String nombre, String especie, Hambre hambre, Salud salud, Higiene higiene) {
-        this.id = siguienteid++;
+        this.id = siguienteId++;
         this.nombre  = nombre;
         this.especie = especie;
         this.hambre  = hambre;
