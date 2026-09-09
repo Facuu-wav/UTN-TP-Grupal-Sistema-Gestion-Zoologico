@@ -31,7 +31,7 @@ public class Mamifero extends Animal{
     }
 
     @Override
-    public boolean ensuciarse (){
+    public boolean ensuciarse() {
         //System.out.println("El Mamifero Ensucio...");
         return true;
     }

@@ -4,7 +4,7 @@ public abstract class Persona {
 
     /// ATRIBUTOS ************************************************************************************************** ///
 
-    private static int    cantLegajo = 0;
+    private static int    proxLegajo = 0;
     private        String nombre;
     private        int    dni;
     private        int    legajo;
@@ -12,15 +12,16 @@ public abstract class Persona {
 
     /// CONSTRUCTOR/ES ********************************************************************************************* ///
 
-    public Persona(String nombre, int dni, int legajo, double salario) {
+    public Persona(String nombre, int dni, double salario) {
         this.nombre  = nombre;
         this.dni     = dni;
-        this.legajo  = cantLegajo++;
+        this.legajo  = proxLegajo++;
         this.salario = salario;
     }
 
     /// MÉTODOS **************************************************************************************************** ///
 
+    /*
     @Override
     public boolean equals(Object obj) {
         if(this == obj){
@@ -39,10 +40,24 @@ public abstract class Persona {
         }
         return false;
     }
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Persona)) {
+            return false;
+        }
+
+        Persona otra = (Persona)obj;
+
+        return dni == otra.dni;
+    }
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Integer.hashCode(dni);
     }
 
     @Override
@@ -55,12 +70,12 @@ public abstract class Persona {
                 '}';
     }
 
-    public int cantidadPersonas() {
-        return this.cantLegajo;
+    public static int cantidadPersonas() {
+        return proxLegajo;
     }
 
     public String quejarseDelSueldo() {
-        return (this.nombre + "dice que con $" + this.salario + " no le alcanza para nada");
+        return (this.nombre + " dice que con $" + this.salario + " no le alcanza para nada");
     }
 
     public boolean tieneGanasDeTrabajar() {
@@ -68,7 +83,7 @@ public abstract class Persona {
     }
 
     public String tomarCafe() {
-        return "\nEl empleado " + " esta tomando un cafe...";
+        return "\nEl empleado " + this.nombre + " está tomando un café...";
     }
 
     public abstract double aumentarSalario(double porcentaje);

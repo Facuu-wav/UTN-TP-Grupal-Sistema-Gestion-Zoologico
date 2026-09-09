@@ -23,7 +23,7 @@ public class Ave extends Animal{
     /// MÉTODOS **************************************************************************************************** ///
 
     @Override
-    public void comer (){
+    public void comer(){
         System.out.println("El Ave Come...");
     }
 
@@ -33,7 +33,7 @@ public class Ave extends Animal{
     }
 
     @Override
-    public boolean ensuciarse (){
+    public boolean ensuciarse(){
         return true;
     }
 
