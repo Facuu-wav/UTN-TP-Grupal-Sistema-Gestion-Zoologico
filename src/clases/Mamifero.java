@@ -22,7 +22,10 @@ public class Mamifero extends Animal{
 
     @Override
     public void comer (){
-        System.out.println("El Mamifero Come...");
+        super.comer();
+        System.out.println(
+               "El animal mamifero " + getNombre() + " come..."
+        );
     }
 
     @Override

@@ -19,7 +19,7 @@ public class Cuidador extends Persona {
     public void alimentar(Animal animal) {
         if (puedeTratar(animal)) {
             System.out.println(
-                    "El cuiador " + getNombre() + " está alimentado a " + animal.getNombre() + "."
+                    "El cuidador " + getNombre() + " está alimentando a " + animal.getNombre() + "."
             );
             animal.comer();
 
