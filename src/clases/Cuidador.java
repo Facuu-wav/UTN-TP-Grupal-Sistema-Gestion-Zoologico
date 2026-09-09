@@ -84,7 +84,7 @@ public class Cuidador extends Persona {
 
     @Override
     public String toString() {
-        return super.toString() + "Cuidador{" +
+        return super.toString() + "\nCuidador{" +
                 "Especialidad=" + especialidad +
                 '}';
     }
