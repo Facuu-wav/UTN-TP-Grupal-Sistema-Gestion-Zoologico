@@ -23,6 +23,7 @@ public abstract class Animal {
 
     /// MÉTODOS **************************************************************************************************** ///
 
+    /*
     // revisar
     public void comer() {
        for(int i = 0 ; i < 4 ; ++i) {
@@ -31,7 +32,11 @@ public abstract class Animal {
            }
        }
     }
+     */
 
+    public void comer() {
+        this.hambre = this.hambre.menosHambre();
+    }
 
     public void enfermarse() {
         this.salud = Salud.ENFERMO;
@@ -44,7 +49,7 @@ public abstract class Animal {
     // revisar
     //Si Animal tiene el Hambre en MUY_ALTO entonces su Salud cambia a DESNUTRIDO.
     public boolean desnutrirse (){
-        if(Hambre.getGrado() > 2) { //Hambre grado 2 = ALTO
+        if(this.hambre.getGrado() > 2) { //Hambre grado 2 = ALTO
             this.salud = Salud.DESNUTRIDO;
             return true;
         }
@@ -53,8 +58,8 @@ public abstract class Animal {
 
     //Si Animal tiene la Salud en LASTIMADO o en ENFERMO entonces Higiene pasa a SUCIO.
     public boolean ensuciarse() {
-        if(salud == enums.Salud.LASTIMADO || salud == enums.Salud.ENFERMO){
-            this.higiene = enums.Higiene.SUCIO;
+        if(salud == Salud.LASTIMADO || salud == Salud.ENFERMO){
+            this.higiene = Higiene.SUCIO;
             return true;
         }
         return false;
