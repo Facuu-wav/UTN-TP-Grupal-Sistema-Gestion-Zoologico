@@ -37,6 +37,11 @@ public class Mamifero extends Animal{
     }
 
     @Override
+    public String defecar() {
+        return getNombre() + " defeca como un mamifero.";
+    }
+
+    @Override
     public String toString() {
         return super.toString() + "Mamifero{" +
                 "pelaje=" + pelaje +

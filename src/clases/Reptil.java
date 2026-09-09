@@ -61,6 +61,11 @@ public class Reptil extends Animal {
     }
 
     @Override
+    public String defecar() {
+        return getNombre() + " defeca como un reptil.";
+    }
+
+    @Override
     public String toString() {
         return super.toString() + "Reptil{" +
                 "esVenenoso=" + esVenenoso +

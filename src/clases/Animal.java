@@ -58,11 +58,7 @@ public abstract class Animal {
         return false;
     }
 
-
-
-    public void defecar(){
-
-    }
+    public abstract String defecar();
 
     @Override
     public String toString() {

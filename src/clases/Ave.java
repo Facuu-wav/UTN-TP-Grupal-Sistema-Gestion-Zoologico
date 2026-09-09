@@ -38,6 +38,11 @@ public class Ave extends Animal{
     }
 
     @Override
+    public String defecar() {
+        return getNombre() + " defeca como un ave.";
+    }
+
+    @Override
     public String toString() {
         return super.toString() + "Ave{" +
                 "estadoPlumaje='" + estadoPlumaje + '\'' +
