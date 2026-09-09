@@ -11,17 +11,21 @@ public class Cuidador extends Persona {
 
     public Cuidador(String nombre, int dni, double salario, Especialidad especialidad) {
         super(nombre, dni, salario);
-        especialidad = especialidad;
+        this.especialidad = especialidad;
     }
 
     /// MÉTODOS **************************************************************************************************** ///
 
     public void alimentar(Animal animal) {
         if (puedeTratar(animal)) {
+            System.out.println(
+                    "El cuiador " + getNombre() + " está alimentado a " + animal.getNombre() + "."
+            );
             animal.comer();
+
         } else {
             System.out.println(
-                    "El cuidador "+ getNombre() + " no puede alimentar este tipo de animal."
+                    "El cuidador " + getNombre() + " no puede alimentar a " + animal.getNombre() + " porque no es su especialidad."
             );
         }
     }
@@ -35,7 +39,16 @@ public class Cuidador extends Persona {
     }
 
     public void curar(Animal animal) {
-
+        if (puedeTratar(animal)) {
+            System.out.println(
+                    "El cuidador " + getNombre() + " está curando a " + animal.getNombre() + "."
+            );
+            animal.volverSaludable();
+        } else {
+            System.out.println(
+                    "El cuidador " + getNombre() + "no puede curar a " + animal.getNombre() + " porque no es su especialidad."
+            );
+        }
     }
 
     @Override

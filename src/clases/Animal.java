@@ -23,17 +23,6 @@ public abstract class Animal {
 
     /// MÉTODOS **************************************************************************************************** ///
 
-    /*
-    // revisar
-    public void comer() {
-       for(int i = 0 ; i < 4 ; ++i) {
-           if (Hambre.getGrado() > i) {
-                this.hambre = enums.Hambre;
-           }
-       }
-    }
-     */
-
     public void comer() {
         this.hambre = this.hambre.menosHambre();
     }
@@ -42,7 +31,20 @@ public abstract class Animal {
         this.salud = Salud.ENFERMO;
     }
 
-    public void lastimarse(){
+    //Si Animal tiene la Salud en LASTIMADO o en ENFERMO entonces Higiene pasa a SUCIO.
+    public boolean ensuciarse() {
+        if(salud == Salud.LASTIMADO || salud == Salud.ENFERMO){
+            this.higiene = Higiene.SUCIO;
+            return true;
+        }
+        return false;
+    }
+
+    public void volverSaludable() {
+        this.salud = Salud.SALUDABLE;
+    }
+
+    public void lastimarse() {
         this.salud = Salud.LASTIMADO;
     }
 
@@ -56,14 +58,7 @@ public abstract class Animal {
         return false;
     }
 
-    //Si Animal tiene la Salud en LASTIMADO o en ENFERMO entonces Higiene pasa a SUCIO.
-    public boolean ensuciarse() {
-        if(salud == Salud.LASTIMADO || salud == Salud.ENFERMO){
-            this.higiene = Higiene.SUCIO;
-            return true;
-        }
-        return false;
-    }
+
 
     public void defecar(){
 
