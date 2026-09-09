@@ -1,6 +1,10 @@
 package clases;
 
-public class Reptil {
+import enums.Hambre;
+import enums.Higiene;
+import enums.Salud;
+
+public class Reptil extends Animal {
 
     /// ATRIBUTOS ************************************************************************************************** ///
 
@@ -9,7 +13,8 @@ public class Reptil {
 
     /// CONSTRUCTOR/ES ********************************************************************************************* ///
 
-    public Reptil(boolean esVenenoso, boolean tienePatas) {
+    public Reptil(String nombre, String especie, Hambre hambre, Salud salud, Higiene higiene, boolean esVenenoso, boolean tienePatas) {
+        super(nombre, especie, hambre, salud, higiene);
         this.esVenenoso = esVenenoso;
         this.tienePatas = tienePatas;
     }

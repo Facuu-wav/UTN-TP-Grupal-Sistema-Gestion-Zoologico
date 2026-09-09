@@ -5,23 +5,28 @@ public class Cuidador extends Persona {
 
     /// ATRIBUTOS ************************************************************************************************** ///
 
-    private Especialidad Especialidad;
+    private Especialidad especialidad;
 
     /// CONSTRUCTOR/ES ********************************************************************************************* ///
 
-    public Cuidador(String nombre, int dni, int legajo, double salario, Especialidad especialidad) {
-        super(nombre, dni, legajo, salario);
-        Especialidad = especialidad;
+    public Cuidador(String nombre, int dni, double salario, Especialidad especialidad) {
+        super(nombre, dni, salario);
+        especialidad = especialidad;
     }
 
     /// MÉTODOS **************************************************************************************************** ///
 
-    public void alimentar() {
-
-        return ;
+    public void alimentar(Animal animal) {
+        if (puedeTratar(animal)) {
+            animal.comer();
+        } else {
+            System.out.println(
+                    "El cuidador "+ getNombre() + " no puede alimentar este tipo de animal."
+            );
+        }
     }
 
-    public void vacunar() {
+    public void vacunar(Animal animal) {
 
     }
 
@@ -29,30 +34,41 @@ public class Cuidador extends Persona {
 
     }
 
-    public void curar(){
+    public void curar(Animal animal) {
 
+    }
+
+    @Override
+    public double aumentarSalario(double porcentaje) {
+        double aumento = getSalario() * porcentaje / 100;
+        setSalario(getSalario() + aumento);
+
+        return getSalario();
+    }
+
+    private boolean puedeTratar(Animal animal) {
+
+        return switch (especialidad) {
+            case MAMIFEROS -> animal instanceof Mamifero;
+            case REPTILES -> animal instanceof Reptil;
+            case AVES -> animal instanceof Ave;
+        };
     }
 
     @Override
     public String toString() {
         return super.toString() + "Cuidador{" +
-                "Especialidad=" + Especialidad +
+                "Especialidad=" + especialidad +
                 '}';
     }
 
     /// GETTERS Y SETTERS ****************************************************************************************** ///
 
     public Especialidad getEspecialidad() {
-        return Especialidad;
+        return especialidad;
     }
 
     public void setEspecialidad(Especialidad especialidad) {
-        Especialidad = especialidad;
-    }
-
-    @Override
-    public double aumentarSalario(double porcentaje) {
-        setSalario((getSalario() * porcentaje) / 100);
-        return getSalario();
+        especialidad = especialidad;
     }
 }
