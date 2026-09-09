@@ -1,4 +1,8 @@
 import clases.Animal;
+import clases.Ave;
+import clases.Mamifero;
+import clases.Reptil;
+import enums.*;
 
 import java.sql.SQLOutput;
 import java.util.Scanner;
@@ -6,16 +10,34 @@ import java.util.Scanner;
 public class Main {
     static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int maximoAnimales = 20;
+        Animal animales[] = new Animal[maximoAnimales];
+
+        // Mamíferos: requieren (..., TipoPelaje)
+        animales[0] = new Mamifero("Leonel", "León", Hambre.BAJA, Salud.SALUDABLE, Higiene.LIMPIO, TipoPelaje.CORTO);
+        animales[1] = new Mamifero("Marta", "Oso Panda", Hambre.ALTA, Salud.DESNUTRIDO, Higiene.SUCIO, TipoPelaje.GRUESO);
+        animales[2] = new Mamifero("Kira", "Pantera", Hambre.MEDIA, Salud.SALUDABLE, Higiene.LIMPIO, TipoPelaje.CORTO);
+        animales[3] = new Mamifero("Rocco", "Rinoceronte", Hambre.BAJA, Salud.LASTIMADO, Higiene.SUCIO, TipoPelaje.SIN_PELO);
+
+    // Aves: requieren (..., String estadoPlumaje, CapacidadVuelo capVuelo)
+        animales[4] = new Ave("Pipo", "Pingüino", Hambre.ALTA, Salud.SALUDABLE, Higiene.LIMPIO, "Denso e impermeable", CapacidadVuelo.DEFECTUOSO);
+        animales[5] = new Ave("Blu", "Guacamayo", Hambre.BAJA, Salud.ENFERMO, Higiene.SUCIO, "Colorido y brillante", CapacidadVuelo.OPTIMO);
+        animales[6] = new Ave("Hedwig", "Lechuza", Hambre.MEDIA, Salud.SALUDABLE, Higiene.LIMPIO, "Blanco impecable", CapacidadVuelo.NO_VUELA);
+
+    // Reptiles: requieren (..., boolean esVenenoso, boolean tienePatas)
+        animales[7] = new Reptil("Coco", "Cocodrilo", Hambre.MUY_ALTA, Salud.SALUDABLE, Higiene.SUCIO, false, true);
+        animales[8] = new Reptil("Sasha", "Cobra", Hambre.BAJA, Salud.LASTIMADO, Higiene.SUCIO, true, false);
+        animales[9] = new Reptil("Igor", "Iguana", Hambre.MEDIA, Salud.SALUDABLE, Higiene.LIMPIO, false, true);
 
 
 
 
+          //====================//
+         //  INTERFAZ DE MENU  //
+        //====================//
 
 
         boolean key = true;
-
-        int maximoAnimales = 20;
-        Animal Animales[] = new Animal[maximoAnimales];
 
         while (key) {
             System.out.println("+==========================+");
@@ -40,81 +62,10 @@ public class Main {
 
             switch (opcion){
                 case 1:
-                    System.out.println("+==========================+");
-                    System.out.println("|                          |");
-                    System.out.println("|   GESTION DE CUIDADORES   |");
-                    System.out.println("|                          |");
-                    System.out.println("+==========================+");
-
-                    System.out.println("1. Alimentar animales. ");
-                    System.out.println("2. vacunar animales. ");
-                    System.out.println("0. Atras.");
-
-                    System.out.println("Ingresar una opcion: ");
-
-                    while(!scanner.hasNextInt()){ //Evaluamos entrada segura de numero entero.
-                        scanner.nextLine(); //limpiamos buffer
-                        System.out.println("Error: debe ingresar un numero.");
-                    }
-                    opcion = scanner.nextInt();
-                    scanner.nextLine(); //limpiamos buffer
-
-                    switch (opcion){
-                        case 1:
-                            //no definido
-
-                            break;
-                        case 2://no definido
-
-                            break;
-                        case 0:
-                            opcion -= 1;
-                            break;
-                        default:
-                            System.out.println("Debe ingresar una de las opciones.");
-                        }
-
-
-
-
+                    Menu.MenuCuidadores(opcion);
                     break;
                 case 2:
-                    System.out.println("+==========================+");
-                    System.out.println("|                         |");
-                    System.out.println("|   GESTION DE ANIMALES   |");
-                    System.out.println("|                         |");
-                    System.out.println("+=========================+");
-
-                    System.out.println("1. Cargar animal. ");
-                    System.out.println("2. Lista por raza. ");
-                    System.out.println("3. Lista por tipo");
-                    System.out.println("0. Atras.");
-
-                    System.out.println("Ingresar una opcion: ");
-
-                    while(!scanner.hasNextInt()){ //Evaluamos entrada segura de numero entero.
-                        scanner.nextLine(); //limpiamos buffer
-                        System.out.println("Error: debe ingresar un numero.");
-                    }
-                    opcion = scanner.nextInt();
-                    scanner.nextLine(); //limpiamos buffer
-
-                    switch (opcion){
-                        case 1:
-                            //no definido
-
-                            break;
-                        case 2://no definido
-
-                            break;
-                        case 0:
-                            opcion -= 1;
-                            break;
-                        default:
-                            System.out.println("Debe ingresar una de las opciones.");
-                    }
-
-
+                    Menu.MenuAnimales(opcion);
                     break;
                 case 0:
                     key = false;

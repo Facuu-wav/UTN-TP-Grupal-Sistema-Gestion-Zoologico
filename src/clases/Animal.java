@@ -62,6 +62,8 @@ public abstract class Animal {
         return false;
     }
 
+
+
     public abstract String defecar();
 
     @Override
