@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class Menu {
 
+
+
     static void MenuCuidadores(boolean key, int opcion, Animal[] a) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("+==========================+");
@@ -44,6 +46,7 @@ public class Menu {
             default:
                 System.out.println("Debe ingresar una de las opciones.");
         }
+        scanner.close();
     }
 
 
@@ -130,6 +133,7 @@ public class Menu {
             default:
                 System.out.println("Debe ingresar una de las opciones.");
         }
+        scanner.close();
     }
 
     public static Animal CargarMamifero() {
@@ -180,6 +184,7 @@ public class Menu {
     }
 
     public static boolean continuar(boolean key){
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Continuar? s/n: ");
         String continuar = scanner.next().toLowerCase();
         while (!continuar.equals("si") && !continuar.equals("no")) {
@@ -190,6 +195,7 @@ public class Menu {
         if (continuar.equals("no")) {
             key = false;
         }
+        scanner.close();
         return key;
     }
 
