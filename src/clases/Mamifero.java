@@ -5,7 +5,7 @@ import enums.Higiene;
 import enums.Salud;
 import enums.TipoPelaje;
 
-public class Mamifero extends Animal{
+public class Mamifero extends Animal {
 
     /// ATRIBUTOS ************************************************************************************************** ///
 
@@ -48,6 +48,10 @@ public class Mamifero extends Animal{
     @Override
     public String defecar() {
         return getNombre() + " defeca como un mamifero.";
+    }
+
+    public String describirPelaje() {
+        return getNombre() + " tiene un pelaje " + pelaje.toString().toLowerCase() + ".";
     }
 
     @Override
