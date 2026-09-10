@@ -16,14 +16,6 @@ public enum Hambre {
         return grado;
     }
 
-    /*
-    public int masHambre(int num){
-            Hambre[] a = Hambre.values();
-            this.ordinal() + 1;
-        return 1;
-    }
-     */
-
     public Hambre masHambre() {
         if (this == MUY_ALTA) {
             return MUY_ALTA;
@@ -37,6 +29,7 @@ public enum Hambre {
         }
         return Hambre.values()[this.ordinal() - 1];
     }
+}
 
     /*
     public static Hambre cargarHambre(){
@@ -51,5 +44,3 @@ public enum Hambre {
         return Hambre.valueOf(h);
     }
      */
-
-}

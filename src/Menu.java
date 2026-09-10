@@ -132,65 +132,59 @@ public class Menu {
         }
     }
 
-    public static Animal CargarMamifero() {
-        Animal aux = obtenerAtributosPadre();
+    public static Animal cargarMamifero() {
+        System.out.println("CARGAR MAMÍFERO");
 
+        System.out.print("Nombre: ");
+        String nombre = limpCargaAtributos();
 
-        Animal mamifero = new  Mamifero(
-                aux.getNombre()
-                ,aux.getEspecie()
-                ,aux.getHambre()
-                ,aux.getSalud()
-                ,aux.getHigiene()
-                ,TipoPelaje.cargarPelaje()
-        );
-        return mamifero;
-    }
-    public static Animal CargarReptil() {
-        Animal aux = obtenerAtributosPadre();
+        System.out.print("Especie: ");
+        String especie = limpCargaAtributos();
 
-        Animal reptil = new Reptil(
-                aux.getNombre()
-                ,aux.getEspecie()
-                ,aux.getHambre()
-                ,aux.getSalud()
-                ,aux.getHigiene()
-                ,Reptil.cargarEsVenenoso()
-                ,Reptil.CargarTienePatas()
-        );
-        return reptil;
+        Hambre hambre = cargarHambre();
+        Salud salud = cargarSalud();
+        Higiene higiene = cargarHigiene();
+        TipoPelaje pelaje = cargarTipoPelaje();
+
+        return new Mamifero(nombre, especie, hambre, salud, higiene, pelaje);
     }
 
-    public static Animal CargarAve() {
-        Animal aux = obtenerAtributosPadre();
+    public static Animal cargarReptil() {
+        System.out.println("CARGAR REPTIL");
 
-        String estadoPelaje = scanner.nextLine();
-        Animal ave = new Ave(
-                aux.getNombre()
-                ,aux.getEspecie()
-                ,aux.getHambre()
-                ,aux.getSalud()
-                ,aux.getHigiene()
-                ,estadoPelaje
-                ,CapacidadVuelo.cargarCapacidadDeVuelo()
-        );
-        return ave;
+        System.out.print("Nombre: ");
+        String nombre = limpCargaAtributos();
+
+        System.out.print("Especie: ");
+        String especie = limpCargaAtributos();
+
+        Hambre hambre = cargarHambre();
+        Salud salud = cargarSalud();
+        Higiene higiene = cargarHigiene();
+
+        return new Reptil(nombre, especie, hambre, salud, higiene, esVenenoso, tienePatas);
     }
 
-    public static boolean continuar(boolean key){
+    public static Animal cargarAve() {
+        System.out.println("CARGAR AVE");
 
-        System.out.print("Continuar? s/n: ");
-        String continuar = scanner.next().toLowerCase();
-        while (!continuar.equals("si") && !continuar.equals("no")) {
-            System.out.println("Error: ingresar una de las opciones");
-            System.out.print("Continuar? si / no: ");
-            continuar = scanner.next().toLowerCase();
-        }
-        if (continuar.equals("no")) {
-            key = false;
-        }
-        return key;
+        System.out.print("Nombre: ");
+        String nombre = limpCargaAtributos();
+
+        System.out.print("Especie: ");
+        String especie = limpCargaAtributos();
+
+        Hambre hambre = cargarHambre();
+        Salud salud = cargarSalud();
+        Higiene higiene = cargarHigiene();
+        CapacidadVuelo capacidadVuelo = cargarCapacidadVuelo();
+
+        System.out.print("Estado del plumaje: ");
+        String estadoPlumaje = limpCargaAtributos();
+
+        return new Ave(nombre, especie, hambre, salud, higiene, estadoPlumaje, capacidadVuelo);
     }
+
 
     public static Animal obtenerAtributosPadre(){
         System.out.print("Nombre: ");
@@ -209,11 +203,205 @@ public class Menu {
 
 //TERMINA METODO CARGARANIMAL********************************************************************************
 
+    /// MÉTODOS DE CARGA DE ENUMS ********************************************************************************* ////
+
+    public static boolean continuar(boolean key){
+
+        System.out.print("Continuar? s/n: ");
+        String continuar = scanner.next().toLowerCase();
+        while (!continuar.equals("si") && !continuar.equals("no")) {
+            System.out.println("Error: ingresar una de las opciones");
+            System.out.print("Continuar? si / no: ");
+            continuar = scanner.next().toLowerCase();
+        }
+        if (continuar.equals("no")) {
+            key = false;
+        }
+        return key;
+    }
+    
     public static String limpCargaAtributos() {
 
         return scanner.nextLine()
                 .trim()
                 .toUpperCase()
                 .replace(" ", "_");
+    }
+
+    public static int cargarEntero() {
+
+        while (!scanner.hasNextInt()) {
+            System.out.println("Error: debe ingresar un número entero.");
+            scanner.nextLine();
+        }
+
+        int numero = scanner.nextInt();
+        scanner.nextLine();
+
+        return numero;
+    }
+
+    public static Hambre cargarHambre() {
+
+        System.out.println("Nivel de hambre:");
+        System.out.println("0 - BAJA");
+        System.out.println("1 - MEDIA");
+        System.out.println("2 - ALTA");
+        System.out.println("3 - MUY ALTA");
+
+        System.out.print("Ingresa un nro:");
+        int grado = cargarEntero();
+
+        switch (grado) {
+            case 0:
+                return Hambre.BAJA;
+
+            case 1:
+                return Hambre.MEDIA;
+
+            case 2:
+                return Hambre.ALTA;
+
+            case 3:
+                return Hambre.MUY_ALTA;
+
+            default:
+                System.out.println("Error: debe ingresar un valor entre 0 y 3");
+                return cargarHambre();
+        }
+    }
+
+    public static Salud cargarSalud() {
+        System.out.println("NIVELES DE SALUD:");
+        System.out.println("0 - DESNUTRIDO");
+        System.out.println("1 - ENFERMO");
+        System.out.println("2 - SALUDABLE");
+        System.out.println("3 - LASTIMADO");
+
+        System.out.print("Ingresa un nro:");
+        int grado = cargarEntero();
+
+        switch (grado) {
+            case 0:
+                return Salud.DESNUTRIDO;
+
+            case 1:
+                return Salud.ENFERMO;
+
+            case 2:
+                return Salud.SALUDABLE;
+
+            case 3:
+                return Salud.LASTIMADO;
+
+            default:
+                System.out.println("Error: debe ingresar un valor entre 0 y 3");
+                return cargarSalud();
+        }
+    }
+
+    public static Higiene cargarHigiene() {
+        System.out.println("NIVELES DE HIGIENE:");
+        System.out.println("0 - LIMPIO");
+        System.out.println("1 - SUCIO");
+
+        System.out.print("Ingresa un nro:");
+        int grado = cargarEntero();
+
+        switch (grado) {
+            case 0:
+                return Higiene.LIMPIO;
+
+            case 1:
+                return Higiene.SUCIO;
+
+            default:
+                System.out.println("Error: debe ingresar un valor entre 0 y 1");
+                return cargarHigiene();
+        }
+    }
+
+    public static CapacidadVuelo cargarCapacidadVuelo() {
+        System.out.println("CAPACIDADES DE VUELO:");
+        System.out.println("0 - OPTIMO");
+        System.out.println("1 - DEFECTUOSA");
+        System.out.println("2 - NO VUELA");
+
+        System.out.print("Ingresa un nro:");
+        int grado = cargarEntero();
+
+        switch (grado) {
+            case 0:
+                return CapacidadVuelo.OPTIMO;
+
+            case 1:
+                return CapacidadVuelo.DEFECTUOSO;
+            case 2:
+                return CapacidadVuelo.NO_VUELA;
+
+            default:
+                System.out.println("Error: debe ingresar un valor entre 0 y 2");
+                return cargarCapacidadVuelo();
+        }
+    }
+
+    public static TipoPelaje cargarTipoPelaje() {
+        System.out.println("TIPOS DE PELAJE:");
+        System.out.println("0 - CORTO");
+        System.out.println("1 - LARGO");
+        System.out.println("2 - RIZADO");
+        System.out.println("3 - GRUESO");
+        System.out.println("4 - LANOSO");
+        System.out.println("5 - LISO");
+        System.out.println("6 - SIN PELO");
+
+        System.out.print("Ingresa un nro:");
+        int grado = cargarEntero();
+
+        switch (grado) {
+            case 0:
+                return TipoPelaje.CORTO;
+            case 1:
+                return TipoPelaje.LARGO;
+            case 2:
+                return TipoPelaje.RIZADO;
+            case 3:
+                return TipoPelaje.GRUESO;
+            case 4:
+                return TipoPelaje.LANOSO;
+            case 5:
+                return TipoPelaje.LISO;
+            case 6:
+                return TipoPelaje.SIN_PELO;
+
+            default:
+                System.out.println("Error: debe ingresar un valor entre 0 y 6");
+                return cargarTipoPelaje();
+        }
+    }
+
+    public static Especialidad cargarEspecialidad() {
+        System.out.println("ESPECIALIDADES:");
+        System.out.println("0 - MAMÍFEROS");
+        System.out.println("1 - REPTILES");
+        System.out.println("2 - AVES");
+
+        System.out.print("Ingresa un nro:");
+        int grado = cargarEntero();
+
+        switch (grado) {
+            case 0:
+                return Especialidad.MAMIFEROS;
+
+            case 1:
+                return Especialidad.REPTILES;
+
+            case 2:
+                return Especialidad.AVES;
+
+            default:
+                System.out.println("Error: debe ingresar un valor entre 0 y 2");
+                return cargarEspecialidad();
+        }
     }
 }
