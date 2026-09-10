@@ -48,6 +48,7 @@ public class Menu {
 
 
 //MENU DE ANIMALES**********************************************************************
+
     static void MenuAnimales (boolean key, int opcion, Animal[] a) {
 
         System.out.println("+==========================+");
@@ -62,9 +63,9 @@ public class Menu {
         System.out.println("4. Mostrar todos.");
         System.out.println("5. Buscar por ID. ");
         System.out.println("6. Listar por tipo. ");
-        System.out.println("0. Atras.");
+        System.out.println("0. Atrás.");
 
-        System.out.println("Ingresar una opcion: ");
+        System.out.println("Ingresar una opción: ");
 
         while (!scanner.hasNextInt()) { //Evaluamos entrada segura de numero entero.
             scanner.nextLine(); //limpiamos buffer
@@ -101,18 +102,29 @@ public class Menu {
                 key = true;
                 break;
 
-            case 4:
+            case 4: // mostrar todos
+                for (Animal v : a) {
+                    if (v != null) {
+                        System.out.println(v);
+                    }
+                }
+                break;
+
+            case 5:
                 while(key) {
-                    System.out.println("Ingresar id:");
+                    System.out.println("Ingresa una ID:");
+
                     while (!scanner.hasNextInt()) {
-                        System.out.println("Error: debe ingresar un nuemero.");
+                        System.out.println("Error: Debe ingresar un numero.");
                         scanner.nextLine();
                     }
+
                     int idBuscado = scanner.nextInt();
+                    scanner.nextLine();
 
                     for (Animal v : a) {
                         if (v != null && v.getId() == idBuscado) {
-                            System.out.println(v.toString());
+                            System.out.println(v);
                         }
                     }
 
@@ -200,7 +212,7 @@ public class Menu {
 
     public static boolean continuar(boolean key){
 
-        System.out.print("Continuar? s/n: ");
+        System.out.print("Continuar? sí / no: ");
         String continuar = scanner.next().toLowerCase();
         while (!continuar.equals("si") && !continuar.equals("no")) {
             System.out.println("Error: ingresar una de las opciones");
