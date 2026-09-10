@@ -9,11 +9,12 @@ public class Main {
         int maximoAnimales = 20;
         Animal animales[] = new Animal[maximoAnimales];
 
-        Cuidador[] cuidadores = new Cuidador[] {
-                new Cuidador("Carlos Gómez", 35412890, 850000.0, Especialidad.MAMIFEROS),
-                new Cuidador("Laura Martínez", 38923411, 890000.0, Especialidad.REPTILES),
-                new Cuidador("Mariano Silva", 40123789, 820000.0, Especialidad.AVES)
-        };
+        Persona[] cuidadores = new Cuidador[6] ;
+
+        cuidadores[0] = new Cuidador("Carlos Gómez", 35412890, 850000.0, Especialidad.MAMIFEROS);
+        cuidadores[1] = new Cuidador("Laura Martínez", 38923411, 890000.0, Especialidad.REPTILES);
+        cuidadores[2] = new Cuidador("Mariano Silva", 40123789, 820000.0, Especialidad.AVES);
+
 
         // Mamíferos: requieren (..., TipoPelaje)
         animales[0] = new Mamifero("Leonel", "León", Hambre.BAJA, Salud.SALUDABLE, Higiene.LIMPIO, TipoPelaje.CORTO);
@@ -65,11 +66,7 @@ public class Main {
 
             switch (opcion){
                 case 1:
-                    while(key) {
-                        ClaseAuxiliar.mMenuCuidadores(key,opcion, animales, cuidadores);
-                      //  Menu.MenuCuidadores(key, opcion, animales, cuidadores);
-                    }
-
+                    Menu.MenuCuidadores(key, opcion, animales, cuidadores);
 
                     break;
                 case 2:

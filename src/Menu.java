@@ -7,7 +7,7 @@ public class Menu {
 
     static Scanner scanner = new Scanner(System.in);
 
-    static void mMenuCuidadores(boolean key, int opcion, Animal[] a, Cuidador[] c) {
+    static void MenuCuidadores(boolean key, int opcion, Animal[] a, Persona[] c) {
 
         System.out.println("+==========================+");
         System.out.println("|                          |");
@@ -15,8 +15,9 @@ public class Menu {
         System.out.println("|                          |");
         System.out.println("+==========================+");
 
-        System.out.println("1. Alimentar animales. ");
-        System.out.println("2. Curar animales. ");
+        System.out.println("1. Cargar cuidador. ");
+        System.out.println("2. Alimentar animales. ");
+        System.out.println("3. Curar animales. ");
         System.out.println("0. Atras.");
 
         System.out.println("Ingresar una opcion: ");
@@ -31,10 +32,19 @@ public class Menu {
         switch (opcion) {
             case 1:
                 while(key) {
+                    agregarCuidador(c,cargarCuidador());
+                    key = continuar(key);
+                }
+                key = true;
+                break;
+            case 2:
+                while(key) {
                     for (Animal i : a) {
-                        if (i.getHambre() != Hambre.BAJA) {
-                            for (Cuidador j : c) {
-                                j.alimentar(i);
+                        if (i != null && i.getHambre() != null && i.getHambre() != Hambre.BAJA) {
+                            for (Persona j : c) {
+                                if (j instanceof Cuidador ) {
+                                    ((Cuidador)j).alimentar(i);
+                                }
                             }
                         }
                     }
@@ -44,28 +54,63 @@ public class Menu {
 
                 key = true;
                 break;
-            case 2:
+            case 3:
                 while(key){
                     for(Animal i : a){
-                        if(i.getSalud() == Salud.DESNUTRIDO || i.getSalud() == Salud.ENFERMO || i.getSalud() == Salud.LASTIMADO){
-                            for(Cuidador j : c){
-                                j.curar(i);
+                        if(i != null && i.getSalud() == Salud.DESNUTRIDO || i.getSalud() == Salud.ENFERMO || i.getSalud() == Salud.LASTIMADO){
+                            for(Persona j : c){
+                                if(j != null) {
+                                    ((Cuidador) j).curar(i);
+                                }
                             }
                         }
                     }
 
-                    key = Menu.continuar(key);
+                    key = continuar(key);
                 }
 
                 key = true;
                 break;
             case 0:
-                ;
+                key = false;
                 break;
             default:
                 System.out.println("Debe ingresar una de las opciones.");
         }
     }
+
+    //Metodos de carga de animales
+
+    public static Persona cargarCuidador() {
+        System.out.println("CARGAR CUIDADOR");
+
+        System.out.print("Nombre: ");
+        String nombre = limpCargaAtributos();
+
+        System.out.print("DNI: ");
+        int dni = cargarEntero();
+
+        System.out.print("Salario: ");
+        double salario = cargarEntero();
+
+        Especialidad especialidad = cargarEspecialidad();
+
+        System.out.print("Estado del plumaje: ");
+        String estadoPlumaje = limpCargaAtributos();
+
+        return new Cuidador(nombre, dni, salario, especialidad);
+    }
+
+public static void agregarCuidador(Persona[] cuidadores, Persona cuidador) {
+    for (int i = 0; i < cuidadores.length; i++) {
+        if (cuidadores[i] == null) {
+            cuidadores[i] = cuidador;
+            System.out.println("Cuidador cargado correctamente. ID: " + cuidador.getLegajo());
+            return;
+        }
+    }
+    System.out.println("No hay espacio disponible para más cuidadores.");
+}
 
 
 
@@ -165,7 +210,7 @@ public class Menu {
                 key = true;
                 break;
             case 0:
-
+                    key = false;
                 break;
             default:
                 System.out.println("Debe ingresar una de las opciones.");
