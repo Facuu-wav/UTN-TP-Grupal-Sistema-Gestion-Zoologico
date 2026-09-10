@@ -1,9 +1,6 @@
 import clases.Animal;
 import clases.Mamifero;
-import enums.Hambre;
-
-import java.util.Locale;
-import java.util.Scanner;
+import enums.*;
 
 import java.util.Scanner;
 
@@ -84,27 +81,40 @@ public class Menu {
         }
     }
 
-    public static void CargarAnimal() {
-        Scanner scanner = new Scanner(System.in);
+    public static Animal CargarAnimal() {
+        String nombre = limpCargaAtributos() ;
 
-        String especie = scanner.nextLine().
-                trim(). //quitamos espacio de los extremos
-                toUpperCase(). // ponemos en mayusculas la entrada de datos.
-                replace(" ", "_"); //reemplazamos espacio por barras bajas.
+        String especie = limpCargaAtributos();
 
-        Hambre hambre = Hambre.valueOf(scanner.nextLine().
-                trim(). //quitamos espacio de los extremos
-                toUpperCase(). // ponemos en mayusculas la entrada de datos
-                replace(" ", "_"); //reemplazamos espacio por barras bajas.);
+        Hambre hambre = Hambre.valueOf(limpCargaAtributos());
 
-        Animal mamifero = new Mamifero(nombre
+        Salud salud = Salud.valueOf(limpCargaAtributos());
+
+        Higiene higiene = Higiene.valueOf(limpCargaAtributos());
+
+        TipoPelaje tipoPelaje = TipoPelaje.valueOf(limpCargaAtributos());
+
+
+        Animal mamifero = new  Mamifero(
+                nombre
                 ,especie
                 ,hambre
                 ,salud
                 ,higiene
-                ,pelaje);
+                ,tipoPelaje
+        );
 
 
         return mamifero;
     }
+
+    public static String limpCargaAtributos(){
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine().
+                trim(). //quitamos espacio de los extremos
+                        toUpperCase(). // ponemos en mayusculas la entrada de datos
+                        replace(" ", "_"); //reemplazamos espacio por barras bajas.;
+    }
+
+
 }
