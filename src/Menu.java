@@ -201,10 +201,10 @@ public class Menu {
 
     public static Animal obtenerAtributosPadre(){
         System.out.print("Nombre: ");
-        String nombre = enums.CapacidadVuelo.limpCargaAtributos() ;
+        String nombre = CapacidadVuelo.limpCargaAtributos() ;
 
         System.out.print("Especie: ");
-        String especie = enums.CapacidadVuelo.limpCargaAtributos();
+        String especie = CapacidadVuelo.limpCargaAtributos();
 
         return new Mamifero(nombre
                 ,especie
