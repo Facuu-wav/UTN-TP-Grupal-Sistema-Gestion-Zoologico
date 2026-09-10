@@ -1,14 +1,11 @@
 package enums;
-import java.util.Scanner;
-
-
-
 
 public enum CapacidadVuelo {
     OPTIMO,
     DEFECTUOSO,
     NO_VUELA;
 
+    /*
     public static CapacidadVuelo cargarCapacidadDeVuelo() {
         System.out.print("Capacidad de vuelo: ");
         String h = limpCargaAtributos();
@@ -20,16 +17,5 @@ public enum CapacidadVuelo {
         }
         return CapacidadVuelo.valueOf(h);
     }
-
-
-    public static String limpCargaAtributos() {
-        Scanner scanner = new Scanner(System.in);
-
-        return scanner.nextLine().
-                trim(). //quitamos espacio de los extremos
-                        toUpperCase(). // ponemos en mayusculas la entrada de datos
-                        replace(" ", "_"); //reemplazamos espacio por barras bajas.;
-
-    }
+    */
 }
-

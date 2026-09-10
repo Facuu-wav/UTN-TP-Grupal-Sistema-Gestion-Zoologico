@@ -4,16 +4,14 @@ import clases.Mamifero;
 import clases.Reptil;
 import  enums.*;
 
-
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Menu {
 
-
+    static Scanner scanner = new Scanner(System.in);
 
     static void MenuCuidadores(boolean key, int opcion, Animal[] a) {
-        Scanner scanner = new Scanner(System.in);
+
         System.out.println("+==========================+");
         System.out.println("|                          |");
         System.out.println("|   GESTION DE CUIDADORES   |");
@@ -46,13 +44,12 @@ public class Menu {
             default:
                 System.out.println("Debe ingresar una de las opciones.");
         }
-        scanner.close();
     }
 
 
 //MENU DE ANIMALES**********************************************************************
     static void MenuAnimales (boolean key, int opcion, Animal[] a) {
-        Scanner scanner = new Scanner(System.in);
+
         System.out.println("+==========================+");
         System.out.println("|                         |");
         System.out.println("|   GESTION DE ANIMALES   |");
@@ -133,7 +130,6 @@ public class Menu {
             default:
                 System.out.println("Debe ingresar una de las opciones.");
         }
-        scanner.close();
     }
 
     public static Animal CargarMamifero() {
@@ -151,7 +147,6 @@ public class Menu {
         return mamifero;
     }
     public static Animal CargarReptil() {
-        Scanner scanner = new Scanner(System.in);
         Animal aux = obtenerAtributosPadre();
 
         Animal reptil = new Reptil(
@@ -167,7 +162,6 @@ public class Menu {
     }
 
     public static Animal CargarAve() {
-        Scanner scanner = new Scanner(System.in);
         Animal aux = obtenerAtributosPadre();
 
         String estadoPelaje = scanner.nextLine();
@@ -184,18 +178,17 @@ public class Menu {
     }
 
     public static boolean continuar(boolean key){
-        Scanner scanner = new Scanner(System.in);
+
         System.out.print("Continuar? s/n: ");
         String continuar = scanner.next().toLowerCase();
         while (!continuar.equals("si") && !continuar.equals("no")) {
             System.out.println("Error: ingresar una de las opciones");
-            System.out.print("Continuar? s/n: ");
+            System.out.print("Continuar? si / no: ");
             continuar = scanner.next().toLowerCase();
         }
         if (continuar.equals("no")) {
             key = false;
         }
-        scanner.close();
         return key;
     }
 
@@ -215,4 +208,12 @@ public class Menu {
     }
 
 //TERMINA METODO CARGARANIMAL********************************************************************************
+
+    public static String limpCargaAtributos() {
+
+        return scanner.nextLine()
+                .trim()
+                .toUpperCase()
+                .replace(" ", "_");
+    }
 }

@@ -1,12 +1,10 @@
 package enums;
 
-import static enums.CapacidadVuelo.limpCargaAtributos;
-
-
 public enum Higiene {
     LIMPIO,
     SUCIO;
 
+    /*
     public static Higiene cargarHigiene(){
 
         System.out.print("Higiene: ");
@@ -18,4 +16,5 @@ public enum Higiene {
         }
         return Higiene.valueOf(h);
     }
+     */
 }

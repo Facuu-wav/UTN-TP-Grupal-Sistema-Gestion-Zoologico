@@ -1,13 +1,12 @@
 package enums;
 
-import static enums.CapacidadVuelo.limpCargaAtributos;
-
 public enum Salud {
     DESNUTRIDO,
     ENFERMO,
     SALUDABLE,
     LASTIMADO;
 
+    /*
     public static Salud cargarSalud(){
         System.out.print("Salud: ");
         String h = limpCargaAtributos();
@@ -18,4 +17,6 @@ public enum Salud {
         }
        return Salud.valueOf(h);
     }
+    */
+
 }

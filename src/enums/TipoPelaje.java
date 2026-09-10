@@ -1,7 +1,5 @@
 package enums;
 
-import static enums.CapacidadVuelo.limpCargaAtributos;
-
 public enum TipoPelaje {
     CORTO,
     LARGO,
@@ -11,6 +9,7 @@ public enum TipoPelaje {
     LISO,
     SIN_PELO;
 
+    /*
     public static TipoPelaje cargarPelaje(){
         System.out.print("Tipo de pelaje: ");
         String h = limpCargaAtributos();
@@ -22,4 +21,5 @@ public enum TipoPelaje {
         }
         return TipoPelaje.valueOf(h);
     }
+    */
 }

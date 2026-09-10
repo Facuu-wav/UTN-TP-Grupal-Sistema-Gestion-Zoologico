@@ -1,5 +1,4 @@
 package enums;
-import static enums.CapacidadVuelo.limpCargaAtributos;
 
 public enum Hambre {
     BAJA(0),
@@ -39,6 +38,7 @@ public enum Hambre {
         return Hambre.values()[this.ordinal() - 1];
     }
 
+    /*
     public static Hambre cargarHambre(){
         System.out.print("Hambre: ");
         String h = limpCargaAtributos();
@@ -50,5 +50,6 @@ public enum Hambre {
         }
         return Hambre.valueOf(h);
     }
+     */
 
 }

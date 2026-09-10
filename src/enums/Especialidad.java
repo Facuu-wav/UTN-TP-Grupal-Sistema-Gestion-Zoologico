@@ -1,11 +1,11 @@
 package enums;
-import static enums.CapacidadVuelo.limpCargaAtributos;
 
 public enum Especialidad {
     MAMIFEROS, // especilaista en mamiferos
     REPTILES, // especialista en reptiles
     AVES; // especialista en aves
 
+    /*
     public static Hambre cargarEspecialidad(){
         System.out.print("Hambre: ");
         String h = limpCargaAtributos();
@@ -17,4 +17,5 @@ public enum Especialidad {
         }
         return Hambre.valueOf(h);
     }
+    */
 }
