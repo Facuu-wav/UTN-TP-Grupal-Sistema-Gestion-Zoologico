@@ -111,25 +111,35 @@ public class Menu {
                 break;
 
             case 5:
-                while(key) {
-                    System.out.println("Ingresa una ID:");
+                while (key) {
+                    System.out.print("Ingresa el ID del animal: ");
 
                     while (!scanner.hasNextInt()) {
-                        System.out.println("Error: Debe ingresar un numero.");
+                        System.out.println("Error: debe ingresar un número.");
                         scanner.nextLine();
                     }
 
                     int idBuscado = scanner.nextInt();
                     scanner.nextLine();
 
-                    for (Animal v : a) {
-                        if (v != null && v.getId() == idBuscado) {
-                            System.out.println(v);
+                    boolean encontrado = false;
+
+                    for (Animal animal : a) {
+                        if (animal != null && animal.getId() == idBuscado) {
+                            System.out.println("Animal encontrado:");
+                            System.out.println(animal);
+                            encontrado = true;
+                            break;
                         }
+                    }
+
+                    if (!encontrado) {
+                        System.out.println("No se encontró ningún animal con el ID " + idBuscado);
                     }
 
                     key = continuar(key);
                 }
+
                 key = true;
                 break;
             case 0:
@@ -206,7 +216,6 @@ public class Menu {
                 return;
             }
         }
-
         System.out.println("No hay espacio disponible para más animales.");
     }
 
