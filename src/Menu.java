@@ -2,7 +2,7 @@ import clases.Animal;
 import clases.Ave;
 import clases.Mamifero;
 import clases.Reptil;
-import  enums.*;
+import enums.*;
 
 import java.util.Scanner;
 
@@ -20,7 +20,7 @@ public class Menu {
 
         System.out.println("1. Alimentar animales. ");
         System.out.println("2. Curar animales. ");
-        System.out.println("0. Atras.");
+        System.out.println("0. Atrás.");
 
         System.out.println("Ingresar una opcion: ");
 
@@ -76,36 +76,32 @@ public class Menu {
         switch (opcion) {
             case 1:
                 while(key) {
-                    cargarMamifero();
-
+                    Animal nuevo = cargarMamifero();
+                    agregarAnimal(a, nuevo);
                     key = continuar(key);
                 }
-
                 key = true;
                 break;
+
             case 2:
                 while(key) {
-                    cargarReptil();
-
+                    Animal nuevo = cargarReptil();
+                    agregarAnimal(a, nuevo);
                     key = continuar(key);
                 }
-
                 key = true;
                 break;
+
             case 3:
                 while(key) {
-                    cargarAve();
+                    Animal nuevo = cargarAve();
+                    agregarAnimal(a, nuevo);
                     key = continuar(key);
                 }
-                
                 key = true;
                 break;
+
             case 4:
-
-
-
-                break;
-            case 5:
                 while(key) {
                     System.out.println("Ingresar id:");
                     while (!scanner.hasNextInt()) {
@@ -190,7 +186,17 @@ public class Menu {
 
 //TERMINA METODO CARGARANIMAL********************************************************************************
 
-    /// MÉTODOS DE CARGA DE ENUMS ********************************************************************************* ////
+    public static void agregarAnimal(Animal[] animales, Animal animal) {
+        for (int i = 0; i < animales.length; i++) {
+            if (animales[i] == null) {
+                animales[i] = animal;
+                System.out.println("Animal cargado correctamente. ID: " + animal.getId());
+                return;
+            }
+        }
+
+        System.out.println("No hay espacio disponible para más animales.");
+    }
 
     public static boolean continuar(boolean key){
 
@@ -242,13 +248,15 @@ public class Menu {
         return respuesta.equals("SI");
     }
 
+    /// MÉTODOS DE CARGA DE ENUMS ********************************************************************************* ////
+
     public static Hambre cargarHambre() {
 
         System.out.println("Nivel de hambre:");
-        System.out.println("0 - BAJA");
-        System.out.println("1 - MEDIA");
-        System.out.println("2 - ALTA");
-        System.out.println("3 - MUY ALTA");
+        System.out.println("0. BAJA");
+        System.out.println("1. MEDIA");
+        System.out.println("2. ALTA");
+        System.out.println("3. MUY ALTA");
 
         System.out.print("Ingresa un nro:");
         int grado = cargarEntero();
@@ -274,10 +282,10 @@ public class Menu {
 
     public static Salud cargarSalud() {
         System.out.println("NIVELES DE SALUD:");
-        System.out.println("0 - DESNUTRIDO");
-        System.out.println("1 - ENFERMO");
-        System.out.println("2 - SALUDABLE");
-        System.out.println("3 - LASTIMADO");
+        System.out.println("0. DESNUTRIDO");
+        System.out.println("1. ENFERMO");
+        System.out.println("2. SALUDABLE");
+        System.out.println("3. LASTIMADO");
 
         System.out.print("Ingresa un nro:");
         int grado = cargarEntero();
@@ -303,8 +311,8 @@ public class Menu {
 
     public static Higiene cargarHigiene() {
         System.out.println("NIVELES DE HIGIENE:");
-        System.out.println("0 - LIMPIO");
-        System.out.println("1 - SUCIO");
+        System.out.println("0. LIMPIO");
+        System.out.println("1. SUCIO");
 
         System.out.print("Ingresa un nro:");
         int grado = cargarEntero();
@@ -324,9 +332,9 @@ public class Menu {
 
     public static CapacidadVuelo cargarCapacidadVuelo() {
         System.out.println("CAPACIDADES DE VUELO:");
-        System.out.println("0 - OPTIMO");
-        System.out.println("1 - DEFECTUOSA");
-        System.out.println("2 - NO VUELA");
+        System.out.println("0. OPTIMO");
+        System.out.println("1. DEFECTUOSA");
+        System.out.println("2. NO VUELA");
 
         System.out.print("Ingresa un nro:");
         int grado = cargarEntero();
@@ -348,13 +356,13 @@ public class Menu {
 
     public static TipoPelaje cargarTipoPelaje() {
         System.out.println("TIPOS DE PELAJE:");
-        System.out.println("0 - CORTO");
-        System.out.println("1 - LARGO");
-        System.out.println("2 - RIZADO");
-        System.out.println("3 - GRUESO");
-        System.out.println("4 - LANOSO");
-        System.out.println("5 - LISO");
-        System.out.println("6 - SIN PELO");
+        System.out.println("0. CORTO");
+        System.out.println("1. LARGO");
+        System.out.println("2. RIZADO");
+        System.out.println("3. GRUESO");
+        System.out.println("4. LANOSO");
+        System.out.println("5. LISO");
+        System.out.println("6. SIN PELO");
 
         System.out.print("Ingresa un nro:");
         int grado = cargarEntero();
@@ -383,9 +391,9 @@ public class Menu {
 
     public static Especialidad cargarEspecialidad() {
         System.out.println("ESPECIALIDADES:");
-        System.out.println("0 - MAMÍFEROS");
-        System.out.println("1 - REPTILES");
-        System.out.println("2 - AVES");
+        System.out.println("0. MAMÍFEROS");
+        System.out.println("1. REPTILES");
+        System.out.println("2. AVES");
 
         System.out.print("Ingresa un nro:");
         int grado = cargarEntero();
