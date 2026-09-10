@@ -1,7 +1,4 @@
-import clases.Animal;
-import clases.Ave;
-import clases.Mamifero;
-import clases.Reptil;
+import clases.*;
 import enums.*;
 
 import java.util.Scanner;
@@ -10,7 +7,7 @@ public class Menu {
 
     static Scanner scanner = new Scanner(System.in);
 
-    static void MenuCuidadores(boolean key, int opcion, Animal[] a) {
+    static void mMenuCuidadores(boolean key, int opcion, Animal[] a, Cuidador[] c) {
 
         System.out.println("+==========================+");
         System.out.println("|                          |");
@@ -20,7 +17,7 @@ public class Menu {
 
         System.out.println("1. Alimentar animales. ");
         System.out.println("2. Curar animales. ");
-        System.out.println("0. Atrás.");
+        System.out.println("0. Atras.");
 
         System.out.println("Ingresar una opcion: ");
 
@@ -33,11 +30,34 @@ public class Menu {
 
         switch (opcion) {
             case 1:
-                //no definido
+                while(key) {
+                    for (Animal i : a) {
+                        if (i.getHambre() != Hambre.BAJA) {
+                            for (Cuidador j : c) {
+                                j.alimentar(i);
+                            }
+                        }
+                    }
 
+                    key = Menu.continuar(key);
+                }
+
+                key = true;
                 break;
-            case 2://no definido
+            case 2:
+                while(key){
+                    for(Animal i : a){
+                        if(i.getSalud() == Salud.DESNUTRIDO || i.getSalud() == Salud.ENFERMO || i.getSalud() == Salud.LASTIMADO){
+                            for(Cuidador j : c){
+                                j.curar(i);
+                            }
+                        }
+                    }
 
+                    key = Menu.continuar(key);
+                }
+
+                key = true;
                 break;
             case 0: ;
                 break;
@@ -45,6 +65,7 @@ public class Menu {
                 System.out.println("Debe ingresar una de las opciones.");
         }
     }
+
 
 
 //MENU DE ANIMALES**********************************************************************

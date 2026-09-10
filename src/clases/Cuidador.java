@@ -60,7 +60,7 @@ public class Cuidador extends Persona {
         return getSalario();
     }
 
-    private boolean puedeTratar(Animal animal) {
+    public boolean puedeTratar(Animal animal) {
 
         return switch (especialidad) {
             case MAMIFEROS -> animal instanceof Mamifero;

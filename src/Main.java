@@ -39,6 +39,7 @@ public class Main {
         //====================//
 
 
+
         boolean key = true;
 
         while (key) {
@@ -64,7 +65,12 @@ public class Main {
 
             switch (opcion){
                 case 1:
-                    Menu.MenuCuidadores(key, opcion, animales);
+                    while(key) {
+                        ClaseAuxiliar.mMenuCuidadores(key,opcion, animales, cuidadores);
+                      //  Menu.MenuCuidadores(key, opcion, animales, cuidadores);
+                    }
+
+
                     break;
                 case 2:
                     Menu.MenuAnimales(key, opcion, animales);
