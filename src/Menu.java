@@ -59,7 +59,8 @@ public class Menu {
 
                 key = true;
                 break;
-            case 0: ;
+            case 0:
+                ;
                 break;
             default:
                 System.out.println("Debe ingresar una de las opciones.");
@@ -70,7 +71,7 @@ public class Menu {
 
 //MENU DE ANIMALES**********************************************************************
 
-    static void MenuAnimales (boolean key, int opcion, Animal[] a) {
+    static void MenuAnimales(boolean key, int opcion, Animal[] a) {
 
         System.out.println("+==========================+");
         System.out.println("|                         |");
@@ -97,7 +98,7 @@ public class Menu {
 
         switch (opcion) {
             case 1:
-                while(key) {
+                while (key) {
                     Animal nuevo = cargarMamifero();
                     agregarAnimal(a, nuevo);
                     key = continuar(key);
@@ -106,7 +107,7 @@ public class Menu {
                 break;
 
             case 2:
-                while(key) {
+                while (key) {
                     Animal nuevo = cargarReptil();
                     agregarAnimal(a, nuevo);
                     key = continuar(key);
@@ -115,7 +116,7 @@ public class Menu {
                 break;
 
             case 3:
-                while(key) {
+                while (key) {
                     Animal nuevo = cargarAve();
                     agregarAnimal(a, nuevo);
                     key = continuar(key);
@@ -228,8 +229,6 @@ public class Menu {
 
         return new Ave(nombre, especie, hambre, salud, higiene, estadoPlumaje, capacidadVuelo);
     }
-
-//TERMINA METODO CARGARANIMAL********************************************************************************
 
     public static void agregarAnimal(Animal[] animales, Animal animal) {
         for (int i = 0; i < animales.length; i++) {
