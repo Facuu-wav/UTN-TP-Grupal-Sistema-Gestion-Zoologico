@@ -150,6 +150,8 @@ public class Menu {
         }
     }
 
+    /// MÉTODOS DE CARGA DE ANIMALES ******************************************************************************* ///
+
     public static Animal cargarMamifero() {
         System.out.println("CARGAR MAMÍFERO");
 
@@ -269,7 +271,7 @@ public class Menu {
         return respuesta.equals("SI");
     }
 
-    /// MÉTODOS DE CARGA DE ENUMS ********************************************************************************* ////
+    /// MÉTODOS DE CARGA DE ENUMS ********************************************************************************** ///
 
     public static Hambre cargarHambre() {
 
