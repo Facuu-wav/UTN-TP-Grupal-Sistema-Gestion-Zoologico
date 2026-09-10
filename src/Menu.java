@@ -76,7 +76,7 @@ public class Menu {
         switch (opcion) {
             case 1:
                 while(key) {
-                    CargarMamifero();
+                    cargarMamifero();
 
                     key = continuar(key);
                 }
@@ -85,7 +85,7 @@ public class Menu {
                 break;
             case 2:
                 while(key) {
-                    CargarReptil();
+                    cargarReptil();
 
                     key = continuar(key);
                 }
@@ -94,7 +94,7 @@ public class Menu {
                 break;
             case 3:
                 while(key) {
-                    CargarAve();
+                    cargarAve();
                     key = continuar(key);
                 }
                 
@@ -162,6 +162,9 @@ public class Menu {
         Salud salud = cargarSalud();
         Higiene higiene = cargarHigiene();
 
+        boolean esVenenoso = cargarBoolean("Es venenoso?");
+        boolean tienePatas = cargarBoolean("Tiene patas?");
+
         return new Reptil(nombre, especie, hambre, salud, higiene, esVenenoso, tienePatas);
     }
 
@@ -185,22 +188,6 @@ public class Menu {
         return new Ave(nombre, especie, hambre, salud, higiene, estadoPlumaje, capacidadVuelo);
     }
 
-
-    public static Animal obtenerAtributosPadre(){
-        System.out.print("Nombre: ");
-        String nombre = CapacidadVuelo.limpCargaAtributos() ;
-
-        System.out.print("Especie: ");
-        String especie = CapacidadVuelo.limpCargaAtributos();
-
-        return new Mamifero(nombre
-                ,especie
-                ,Hambre.cargarHambre()
-                ,Salud.cargarSalud()
-                ,Higiene.cargarHigiene()
-                ,null);
-    }
-
 //TERMINA METODO CARGARANIMAL********************************************************************************
 
     /// MÉTODOS DE CARGA DE ENUMS ********************************************************************************* ////
@@ -219,7 +206,7 @@ public class Menu {
         }
         return key;
     }
-    
+
     public static String limpCargaAtributos() {
 
         return scanner.nextLine()
@@ -239,6 +226,20 @@ public class Menu {
         scanner.nextLine();
 
         return numero;
+    }
+
+    public static boolean cargarBoolean(String mensaje) {
+
+        System.out.print(mensaje + " si/no: ");
+        String respuesta = limpCargaAtributos();
+
+        while (!respuesta.equals("SI") && !respuesta.equals("NO")) {
+            System.out.println("Error: ingresar SI o NO.");
+            System.out.print(mensaje + " si/no: ");
+            respuesta = limpCargaAtributos();
+        }
+
+        return respuesta.equals("SI");
     }
 
     public static Hambre cargarHambre() {
