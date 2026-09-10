@@ -1,6 +1,21 @@
 package enums;
 
+import static enums.CapacidadVuelo.limpCargaAtributos;
+
+
 public enum Higiene {
     LIMPIO,
-    SUCIO
+    SUCIO;
+
+    public static Higiene cargarHigiene(){
+
+        System.out.print("Higiene: ");
+        String h = limpCargaAtributos();
+        while(!h.equals("LIMPIO") && !h.equals("SUCIO")){
+            System.out.println("Error: ingresar uno de los valores LIMPIO, SUCIO");
+            System.out.print("Higiene: ");
+            h = limpCargaAtributos();
+        }
+        return Higiene.valueOf(h);
+    }
 }

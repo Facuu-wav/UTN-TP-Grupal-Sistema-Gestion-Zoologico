@@ -4,6 +4,7 @@ import enums.Hambre;
 import enums.Higiene;
 import enums.Salud;
 
+import java.util.Scanner;
 public class Reptil extends Animal {
 
     /// ATRIBUTOS ************************************************************************************************** ///
@@ -88,6 +89,38 @@ public class Reptil extends Animal {
                 '}';
     }
 
+    public static boolean cargarEsVenenoso(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Es venenoso si/no: ");
+        String op = scanner.next().toLowerCase();
+        while(!op.equals("si") && !op.equals("no")){
+            System.out.println("Ingresar uno de los valores si/no");
+            System.out.print("Es venenoso: ");
+        }
+        boolean esVenenoso = true;
+
+        if(op.equals("no")){
+            esVenenoso = false;
+        }
+        return esVenenoso;
+    }
+
+    public static boolean CargarTienePatas(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Es venenoso si/no: ");
+
+        String op = scanner.next().toLowerCase();
+        while(!op.equals("si") && !op.equals("no")){
+            System.out.println("Ingresar uno de los valores si/no");
+            System.out.print("Es venenoso: ");
+            op = scanner.nextLine().toLowerCase();
+        }
+
+        if(op.equals("no")){
+            return false;
+        }
+        return true;
+    }
     /// GETTERS Y SETTERS ****************************************************************************************** ///
 
     public boolean esVenenoso() {

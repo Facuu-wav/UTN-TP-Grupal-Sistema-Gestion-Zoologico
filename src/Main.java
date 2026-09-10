@@ -1,7 +1,6 @@
 import clases.*;
 import enums.*;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
@@ -65,10 +64,10 @@ public class Main {
 
             switch (opcion){
                 case 1:
-                    Menu.MenuCuidadores(opcion);
+                    Menu.MenuCuidadores(key, opcion, animales);
                     break;
                 case 2:
-                    Menu.MenuAnimales(opcion);
+                    Menu.MenuAnimales(key, opcion, animales);
                     break;
                 case 0:
                     key = false;

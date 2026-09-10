@@ -63,6 +63,7 @@ public abstract class Animal {
     @Override
     public String toString() {
         return "Animal{" +
+                "Id='"+ id + '\'' +
                 "Nombre='" + nombre + '\'' +
                 ", Especie='" + especie + '\'' +
                 ", Hambre=" + hambre +

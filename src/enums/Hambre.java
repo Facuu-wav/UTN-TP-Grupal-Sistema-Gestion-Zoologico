@@ -1,4 +1,5 @@
 package enums;
+import static enums.CapacidadVuelo.limpCargaAtributos;
 
 public enum Hambre {
     BAJA(0),
@@ -8,7 +9,7 @@ public enum Hambre {
 
     private final int grado;
 
-    Hambre(int grado) {
+    Hambre(int grado){
         this.grado = grado;
     }
 
@@ -37,4 +38,17 @@ public enum Hambre {
         }
         return Hambre.values()[this.ordinal() - 1];
     }
+
+    public static Hambre cargarHambre(){
+        System.out.print("Hambre: ");
+        String h = limpCargaAtributos();
+
+        while(!h.equals("BAJA") && !h.equals("MEDIA") && !h.equals("ALTA") && !h.equals("MUY_ALTA")){
+            System.out.println("Error: ingresar uno de los valores BAJA, MEDIA, ALTA, MUY_ALTA");
+            System.out.print("Hambre: ");
+            h = limpCargaAtributos();
+        }
+        return Hambre.valueOf(h);
+    }
+
 }
